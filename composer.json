@@ -1,6 +1,8 @@
 {
+    "name": "symfony/website-skeleton",
     "type": "project",
-    "license": "proprietary",
+    "license": "MIT",
+    "description": "A skeleton to start a new Symfony website",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
@@ -84,10 +86,8 @@
         "symfony/polyfill-php80": "*"
     },
     "scripts": {
-        "auto-scripts": {
-            "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
-        },
+        "auto-scripts": [
+        ],
         "post-install-cmd": [
             "@auto-scripts"
         ],
