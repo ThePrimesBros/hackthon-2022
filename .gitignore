@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Cache and logs (Symfony2)
 /app/cache/*
 /app/logs/*
@@ -50,3 +51,30 @@
 
 # Embedded web-server pid file
 /.web-server-pid
+=======
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> IDE/OS ###
+.idea
+**/.DS_Store
+###< IDE/OS ###
+>>>>>>> 03bc316d65f9685bbb4d2caa6ddc4ce6ecceb972

@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+
+<table id="myTable" class="display">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Contenu</th>
+            <th>Traiter</th>
+            <th>Envoyé Le</th>
+            <th>Répondre</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for demandes in demande %}
+            <tr>
+                <td>{{demandes.contactEmail}}</td>
+                <td>{{demandes.content}}</td>
+                {% if demandes.Traiter == false %}
+                    <td>Non traiter</td>
+                {% else %}
+                    <td>Traiter</td>
+                {% endif %}
+                <td>{{demandes.sendAt | date("d/m/Y h:i:s")}}</td>
+                <td><a href="/admin/relance/{{demandes.id}}">Répondre</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script>
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
+{% endblock %}
