@@ -10,9 +10,9 @@ services:
     image: postgres:13-alpine
     restart: always
     environment:
-        POSTGRES_PASSWORD: password
-        POSTGRES_DB: db
-        POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
+      POSTGRES_USER: postgres
     volumes:
       - db-data:/var/lib/postgresql/data:rw
     ports:
@@ -54,6 +54,13 @@ services:
     ports:
       - "80:80"
       - "443:443"
+
+  adminer:
+    image: adminer
+    ports:
+      - 8081:8080
+    depends_on:
+      - db
 
 volumes:
   db-data: {}
