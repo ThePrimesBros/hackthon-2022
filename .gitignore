@@ -23,3 +23,5 @@
 .idea
 **/.DS_Store
 ###< IDE/OS ###
+
+**/node_modules
