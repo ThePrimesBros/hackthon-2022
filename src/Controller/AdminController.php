@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Demande;
+use App\Form\NewsletterType;
 use App\Form\RelanceType;
 use Symfony\Component\Mime\Email;
 use App\Repository\DemandeRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
@@ -37,7 +39,7 @@ class AdminController extends AbstractController
             
             if ($form->isSubmitted() && $form->isValid()) {
                 $data = $form->getData();
-                
+
                 $demande->setTraiter(true);
                 $demande->setContactEmail($data['Email']);
                 $entityManager->persist($demande);
@@ -62,4 +64,47 @@ class AdminController extends AbstractController
             'demande' => $demande,
         ]);
     }
+
+            #[Route('/admin/newsletter', name: 'newsletter_admin')]
+            public function newsletter(Request $request, UserRepository $userRepository, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
+            {
+                $user = $userRepository->findAll();
+    
+                $form = $this->createForm(NewsletterType::class);
+                $form->handleRequest($request);
+                
+                if ($form->isSubmitted() && $form->isValid()) {
+                    $data = $form->getData();
+                    for($i = 1; $i<=count($user); $i++){
+                        if(isset($_POST['prospect'.$i])){
+                            $email = (new Email())
+                            ->from('test@test.fr')
+                            ->to($_POST['prospect'.$i])
+                            //->cc('cc@example.com')
+                            //->bcc('bcc@example.com')
+                            //->replyTo('fabien@example.com')
+                            //->priority(Email::PRIORITY_HIGH)
+                            ->subject($data['Sujet'])
+                            ->text($data['Contenu']);
+                
+                            $mailer->send($email);
+                        }
+                    }
+        
+                    return $this->redirectToRoute('newsletter_admin');
+            }
+            return $this->render('admin/newsletter.html.twig', [
+                'newsletterForm' => $form->createView(),
+                'users' => $user,
+            ]);
+        }
+        #[Route('/admin/translate/{locale}', name: 'translate_admin')]
+        public function changeLocale($locale, Request $request)
+        {
+            // On stocke la langue dans la session
+            $request->getSession()->set('_locale', $locale);
+
+            // On revient sur la page précédente
+            return $this->redirect($request->headers->get('referer'));
+        }
 }
