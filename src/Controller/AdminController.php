@@ -2,12 +2,15 @@
 
 namespace App\Controller;
 
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use App\Entity\Demande;
-use App\Form\NewsletterType;
+use App\Form\RapportType;
 use App\Form\RelanceType;
+use App\Form\NewsletterType;
 use Symfony\Component\Mime\Email;
-use App\Repository\DemandeRepository;
 use App\Repository\UserRepository;
+use App\Repository\DemandeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,23 +32,23 @@ class AdminController extends AbstractController
         ]);
     }
 
-        #[Route('/admin/relance/{id}', name: 'email_admin')]
-        public function mail(Demande $demande, Request $request, DemandeRepository $demandeRepository, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
-        {
-            $demande = $demandeRepository->find($demande);
+    #[Route('/admin/relance/{id}', name: 'email_admin')]
+    public function mail(Demande $demande, Request $request, DemandeRepository $demandeRepository, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
+    {
+        $demande = $demandeRepository->find($demande);
 
-            $form = $this->createForm(RelanceType::class);
-            $form->handleRequest($request);
-            
-            if ($form->isSubmitted() && $form->isValid()) {
-                $data = $form->getData();
+        $form = $this->createForm(RelanceType::class);
+        $form->handleRequest($request);
 
-                $demande->setTraiter(true);
-                $demande->setContactEmail($data['Email']);
-                $entityManager->persist($demande);
-                $entityManager->flush();
-    
-                $email = (new Email())
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+
+            $demande->setTraiter(true);
+            $demande->setContactEmail($data['Email']);
+            $entityManager->persist($demande);
+            $entityManager->flush();
+
+            $email = (new Email())
                 ->from('test@test.fr')
                 ->to($data['Email'])
                 //->cc('cc@example.com')
@@ -54,10 +57,10 @@ class AdminController extends AbstractController
                 //->priority(Email::PRIORITY_HIGH)
                 ->subject($data['Sujet'])
                 ->text($data['Contenu']);
-    
-                $mailer->send($email);
-    
-                return $this->redirectToRoute('relance_admin');
+
+            $mailer->send($email);
+
+            return $this->redirectToRoute('relance_admin');
         }
         return $this->render('admin/test.html.twig', [
             'testForm' => $form->createView(),
@@ -65,46 +68,85 @@ class AdminController extends AbstractController
         ]);
     }
 
-            #[Route('/admin/newsletter', name: 'newsletter_admin')]
-            public function newsletter(Request $request, UserRepository $userRepository, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
-            {
-                $user = $userRepository->findAll();
-    
-                $form = $this->createForm(NewsletterType::class);
-                $form->handleRequest($request);
-                
-                if ($form->isSubmitted() && $form->isValid()) {
-                    $data = $form->getData();
-                    for($i = 1; $i<=count($user); $i++){
-                        if(isset($_POST['prospect'.$i])){
-                            $email = (new Email())
-                            ->from('test@test.fr')
-                            ->to($_POST['prospect'.$i])
-                            //->cc('cc@example.com')
-                            //->bcc('bcc@example.com')
-                            //->replyTo('fabien@example.com')
-                            //->priority(Email::PRIORITY_HIGH)
-                            ->subject($data['Sujet'])
-                            ->text($data['Contenu']);
-                
-                            $mailer->send($email);
-                        }
-                    }
-        
-                    return $this->redirectToRoute('newsletter_admin');
+    #[Route('/admin/newsletter', name: 'newsletter_admin')]
+    public function newsletter(Request $request, UserRepository $userRepository, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
+    {
+        $user = $userRepository->findAll();
+
+        $form = $this->createForm(NewsletterType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            for ($i = 1; $i <= count($user); $i++) {
+                if (isset($_POST['prospect' . $i])) {
+                    $email = (new Email())
+                        ->from('test@test.fr')
+                        ->to($_POST['prospect' . $i])
+                        //->cc('cc@example.com')
+                        //->bcc('bcc@example.com')
+                        //->replyTo('fabien@example.com')
+                        //->priority(Email::PRIORITY_HIGH)
+                        ->subject($data['Sujet'])
+                        ->text($data['Contenu']);
+
+                    $mailer->send($email);
+                }
             }
-            return $this->render('admin/newsletter.html.twig', [
-                'newsletterForm' => $form->createView(),
-                'users' => $user,
+
+            return $this->redirectToRoute('newsletter_admin');
+        }
+        return $this->render('admin/newsletter.html.twig', [
+            'newsletterForm' => $form->createView(),
+            'users' => $user,
+        ]);
+    }
+    #[Route('/admin/translate/{locale}', name: 'translate_admin')]
+    public function changeLocale($locale, Request $request)
+    {
+        // On stocke la langue dans la session
+        $request->getSession()->set('_locale', $locale);
+
+        // On revient sur la page précédente
+        return $this->redirect($request->headers->get('referer'));
+    }
+
+    #[Route('/admin/generate', name: 'generate_admin')]
+    public function generatePDF(Request $request)
+    {
+
+        $form = $this->createForm(RapportType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $pdfOptions = new Options();
+            $pdfOptions->set('defaultFont', 'Arial');
+
+            // Instantiate Dompdf with our options
+            $dompdf = new Dompdf($pdfOptions);
+
+            // Retrieve the HTML generated in our twig file
+            $html = $this->renderView('default/mypdf.html.twig', [
+                'data' => $data,
+            ]);
+
+            // Load HTML to Dompdf
+            $dompdf->loadHtml($html);
+
+            // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+            $dompdf->setPaper('A4', 'portrait');
+
+            // Render the HTML as PDF
+            $dompdf->render();
+
+            // Output the generated PDF to Browser (force download)
+            $dompdf->stream("rapport_".$data['entreprise']."_test.pdf", [
+                "Attachment" => true
             ]);
         }
-        #[Route('/admin/translate/{locale}', name: 'translate_admin')]
-        public function changeLocale($locale, Request $request)
-        {
-            // On stocke la langue dans la session
-            $request->getSession()->set('_locale', $locale);
-
-            // On revient sur la page précédente
-            return $this->redirect($request->headers->get('referer'));
-        }
+        return $this->render('admin/generate.html.twig', [
+            'rapportForm' => $form->createView(),
+        ]);
+    }
 }

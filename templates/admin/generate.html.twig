@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Generate{% endblock %}
+
+{% block body %}
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <h1>Generate PDF Rapport</h1>
+
+    {{ form_start(rapportForm) }}
+        {{ form_row(rapportForm.title) }}
+        {{ form_row(rapportForm.entreprise) }}
+        {{ form_row(rapportForm.graph1)}}
+        {{ form_row(rapportForm.graph2)}}
+        {{ form_row(rapportForm.graph3)}}
+        <button type="submit" class="btn">Généré</button>
+    {{ form_end(rapportForm) }}
+{% endblock %}
