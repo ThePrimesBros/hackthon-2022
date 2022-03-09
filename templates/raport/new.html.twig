@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Raport{% endblock %}
+
+{% block body %}
+    <h1>Create new Raport</h1>
+
+    {{ include('raport/_form.html.twig') }}
+
+    <a href="{{ path('app_raport_index') }}">back to list</a>
+{% endblock %}

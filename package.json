@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@editorjs/editorjs": "^2.23.2"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.0.23"
+  }
+}
