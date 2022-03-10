@@ -5,13 +5,16 @@ namespace App\Controller;
 use Dompdf\Dompdf;
 use App\Core\Excel;
 use Dompdf\Options;
+use App\Entity\Raport;
 use App\Entity\Demande;
+use App\Entity\User;
 use App\Form\RapportType;
 use App\Form\RelanceType;
 use App\Form\NewsletterType;
 use Symfony\Component\Mime\Email;
 use App\Repository\UserRepository;
 use Symfony\UX\Chartjs\Model\Chart;
+use App\Repository\RaportRepository;
 use App\Repository\DemandeRepository;
 use App\Repository\EntrepriseRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -21,6 +24,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminController extends AbstractController
@@ -116,15 +120,17 @@ class AdminController extends AbstractController
     }
 
     #[Route('/admin/generate', name: 'generate_admin')]
-    public function generatePDF(Request $request, EntrepriseRepository $entrepriseRepository)
+    public function generatePDF(Request $request, EntrepriseRepository $entrepriseRepository, EntityManagerInterface $entityManager)
     {
-
+        $user = $this->getUser();
         $form = $this->createForm(RapportType::class);
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-
+            $rapport = new Raport();
+            $rapport->setUser($user);
+            $rapport->setPrice(50000);
 
             $antioxydant = 1;
             $moisturizing= 1;
@@ -136,7 +142,9 @@ class AdminController extends AbstractController
             $excel = new Excel();
             $data2 = $excel->import($antioxydant,$moisturizing, $barriere,$untreatedSkinAntioxydant,$untreatedSkinMoisturizing,$untreatedSkinBarriere);
 
-            
+            $entityManager->persist($rapport);
+            $entityManager->flush();
+
             $entreprise = $entrepriseRepository->findOneBy(["name" => $data['entreprise']]);
 
             return $this->render('default/mypdf.html.twig', [
