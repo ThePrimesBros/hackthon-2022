@@ -81,9 +81,13 @@ class RaportController extends AbstractController
         $antioxydant = 1;
         $moisturizing= 1;
         $barriere=1;
+        $untreatedSkinAntioxydant = 1;
+        $untreatedSkinMoisturizing = 1 ;
+        $untreatedSkinBarriere = 1 ;
+
 
         $excel = new Excel();
-        $data = $excel->import($antioxydant,$moisturizing, $barriere);
+        $data = $excel->import($antioxydant,$moisturizing, $barriere,$untreatedSkinAntioxydant,$untreatedSkinMoisturizing,$untreatedSkinBarriere);
         dd($data);
 
         return $data;
