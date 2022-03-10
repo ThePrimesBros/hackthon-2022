@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Core\Excel;
 use App\Entity\Raport;
 use App\Form\RaportType;
 use App\Repository\RaportRepository;
@@ -72,5 +73,19 @@ class RaportController extends AbstractController
         }
 
         return $this->redirectToRoute('app_raport_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/{id}/import', name: 'app_raport_importData', methods: ['GET'])]
+    public function importData(Request $request): Response
+    {
+        $antioxydant = 0;
+        $moisturizing= 1;
+        $barriere=0;
+
+        $excel = new Excel();
+        $data = $excel->import($antioxydant,$moisturizing, $barriere);
+        dd($data);
+
+        return $data;
     }
 }
