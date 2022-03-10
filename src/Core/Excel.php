@@ -6,10 +6,13 @@ use PhpOffice\PhpSpreadsheet\Reader\Xls;
 
 class Excel {
 
-
-
     public function import($antioxydant,$moisturizing, $barriere)
     {
+
+        $dataMoisturizing = array();
+        $dataAntioxydant = array();
+        $dataBarriere = array();
+
         $reader = new xls();
 
         $spreadsheet = $reader->load('excel/DatasHackaton_2022_08_03.xls');
@@ -65,7 +68,6 @@ class Excel {
 
         $dataMoisturizing= array();
         if($moisturizing === 1) {
-
             foreach ($products as $key => $product) {
                 $sumMoisturizingT0Product = 0;
                 $sumMoisturizingT1Product = 0;
@@ -73,13 +75,15 @@ class Excel {
                 $countT1 = 0;
                 foreach ($datas as $data) {
                     if ($data[0] === $product) {
-                        if ($data[4] === '1') {
-                            $sumMoisturizingT0Product = $data[5] + $sumMoisturizingT0Product;
-                            $countT0 ++;
-                        }
-                        if ($data[4] === '2') {
-                            $sumMoisturizingT1Product = $data[5] + $sumMoisturizingT1Product;
-                            $countT1 ++;
+                        if($data[3]==='2') {
+                            if ($data[4] === '1') {
+                                $sumMoisturizingT0Product = $data[5] + $sumMoisturizingT0Product;
+                                $countT0++;
+                            }
+                            if ($data[4] === '2') {
+                                $sumMoisturizingT1Product = $data[5] + $sumMoisturizingT1Product;
+                                $countT1++;
+                            }
                         }
                     }
                 }
@@ -90,13 +94,79 @@ class Excel {
                     'product'.$key.'SumT1' => $sumMoisturizingT1Product,
                     'countT1' =>$countT1,
                     'moyenneT1'=>$sumMoisturizingT1Product/$countT1,
+                    'description'=> 'Moyenne VITC & SKC de T0 à T1 avec pour critères Moisturizing '
+                );
+            }
+        }
 
+        if($antioxydant === 1){
+            foreach ($products as $key => $product) {
+                $sumAntioxydantT0Product = 0;
+                $sumAntioxydantT1Product = 0;
+                $countT0 = 0;
+                $countT1 = 0;
+                foreach ($datas as $data) {
+                    if ($data[0] === $product) {
+                        if($data[3]==='1') {
+                            if ($data[4] === '1') {
+                                $sumAntioxydantT0Product = $data[5] + $sumAntioxydantT0Product;
+                                $countT0++;
+                            }
+                            if ($data[4] === '2') {
+                                $sumAntioxydantT1Product = $data[5] + $sumAntioxydantT1Product;
+                                $countT1++;
+                            }
+                        }
+                    }
+                }
+                $dataAntioxydant[$key] = array(
+                    'product'.$key.'SumT0' => $sumAntioxydantT0Product,
+                    'countT0' =>$countT0,
+                    'moyenneT0'=>$sumAntioxydantT0Product/$countT0,
+                    'product'.$key.'SumT1' => $sumAntioxydantT1Product,
+                    'countT1' =>$countT1,
+                    'moyenneT1'=>$sumAntioxydantT1Product/$countT1,
+                    'description'=> 'Moyenne VITC & SKC de T0 à T1 avec pour critères Antioxidant '
+                );
+            }
+        }
+
+        if($barriere === 1){
+            foreach ($products as $key => $product) {
+                $sumBarriereT0Product = 0;
+                $sumBarriereT1Product = 0;
+                $countT0 = 0;
+                $countT1 = 0;
+                foreach ($datas as $data) {
+                    if ($data[0] === $product) {
+                        if($data[3]==='3') {
+                            if ($data[4] === '1') {
+                                $sumBarriereT0Product = $data[5] + $sumBarriereT0Product;
+                                $countT0++;
+                            }
+                            if ($data[4] === '2') {
+                                $sumBarriereT1Product = $data[5] + $sumBarriereT1Product;
+                                $countT1++;
+                            }
+                        }
+                    }
+                }
+                $dataBarriere[$key] = array(
+                    'product'.$key.'SumT0' => $sumBarriereT0Product,
+                    'countT0' =>$countT0,
+                    'moyenneT0'=>$sumBarriereT0Product/$countT0,
+                    'product'.$key.'SumT1' => $sumBarriereT1Product,
+                    'countT1' =>$countT1,
+                    'moyenneT1'=>$sumBarriereT1Product/$countT1,
+                    'description'=> 'Moyenne VITC & SKC de T0 à T1 avec pour critères Barrière '
                 );
             }
         }
 
         $datas = array(
             'moisturizing' => $dataMoisturizing,
+            'antioxydant'=> $dataAntioxydant,
+            'barriere' => $dataBarriere,
         );
         return $datas;
     }
