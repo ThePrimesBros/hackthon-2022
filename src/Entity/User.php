@@ -61,22 +61,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $adresse;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $city;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="string", length=10, nullable=true)
      */
     private $cp;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $logo;
 
@@ -91,7 +91,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $articles;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="users")
+     * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="users", cascade={"persist", "remove" })
      * @ORM\JoinColumn(nullable=false)
      */
     private $entreprise;
