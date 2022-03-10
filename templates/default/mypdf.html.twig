@@ -89,13 +89,13 @@ const test = setTimeout(dlPdf, 1000);
 <script>
 {% if data.graph1 == true %}
 var lineChartData1 = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: ["T0", "T1"],
     datasets: [{
         fillColor: "rgba(220,220,220,0.5)",
         strokeColor: "rgba(220,220,220,1)",
         pointColor: "rgba(220,220,220,1)",
         pointStrokeColor: "#fff",
-        data: [65, 59, 90, 81, 56, 55, 40],
+        data: [{{data2.moisturizing[0].product0SumT0}}, {{data2.moisturizing[0].product0SumT1}}],
         bezierCurve: false
     }]
 
@@ -103,13 +103,13 @@ var lineChartData1 = {
 {% endif %}
 {% if data.graph2 == true %}
 var lineChartData2 = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: ["T0", "T1"],
     datasets: [{
         fillColor: "rgba(220,220,220,0.5)",
         strokeColor: "rgba(220,220,220,1)",
         pointColor: "rgba(220,220,220,1)",
         pointStrokeColor: "#fff",
-        data: [65, 59, 90, 81, 56, 55, 40],
+        data: [{{data2.moisturizing[0].moyenneT0}}, {{data2.moisturizing[0].moyenneT1}}],
         bezierCurve: false
     }]
 
@@ -117,13 +117,13 @@ var lineChartData2 = {
 {% endif %}
 {% if data.graph3 == true %}
 var lineChartData3 = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: ["T0", "T1"],
     datasets: [{
         fillColor: "rgba(220,220,220,0.5)",
         strokeColor: "rgba(220,220,220,1)",
         pointColor: "rgba(220,220,220,1)",
         pointStrokeColor: "#fff",
-        data: [65, 59, 90, 81, 56, 55, 40],
+        data: [{{data2.moisturizing[1].product1SumT0}}, {{data2.moisturizing[1].product1SumT1}}],
         bezierCurve: false
     }]
 
@@ -131,13 +131,13 @@ var lineChartData3 = {
 {% endif %}
 {% if data.graph4 == true %}
 var lineChartData4 = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: ["T0", "T1"],
     datasets: [{
         fillColor: "rgba(220,220,220,0.5)",
         strokeColor: "rgba(220,220,220,1)",
         pointColor: "rgba(220,220,220,1)",
         pointStrokeColor: "#fff",
-        data: [65, 59, 90, 81, 56, 55, 40],
+        data: [{{data2.moisturizing[1].moyenneT0}}, {{data2.moisturizing[1].moyenneT1}}],
         bezierCurve: false
     }]
 
@@ -145,29 +145,46 @@ var lineChartData4 = {
 {% endif %}
 {% if data.graph5 == true %}
 var lineChartData5 = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: ["T0", "T1"],
     datasets: [{
-        fillColor: "rgba(220,220,220,0.5)",
-        strokeColor: "rgba(220,220,220,1)",
-        pointColor: "rgba(220,220,220,1)",
-        pointStrokeColor: "#fff",
-        data: [65, 59, 90, 81, 56, 55, 40],
-        bezierCurve: false
+        label: "Product 1",
+            fillColor: "rgba(220,220,220,0.5)",
+            strokeColor: "rgba(220,220,220,1)",
+            pointColor: "rgba(220,220,220,1)",
+            pointStrokeColor: "#fff",
+            data: [{{data2.moisturizing[0].product0SumT0}}, {{data2.moisturizing[0].product0SumT1}}],
+            bezierCurve: false
+        }, {
+            label: "Product 2",
+            fillColor: "rgba(220,220,220,0.5)",
+            strokeColor: "rgba(220,220,220,1)",
+            pointColor: "rgba(220,220,220,1)",
+            pointStrokeColor: "#fff",
+            data: [{{data2.moisturizing[1].product1SumT0}}, {{data2.moisturizing[1].product1SumT1}}],
+            bezierCurve: false
     }]
-
 }
 {% endif %}
 {% if data.graph6 == true %}
 var lineChartData6 = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: ["T0", "T1"],
     datasets: [{
-        fillColor: "rgba(220,220,220,0.5)",
-        strokeColor: "rgba(220,220,220,1)",
-        pointColor: "rgba(220,220,220,1)",
-        pointStrokeColor: "#fff",
-        data: [65, 59, 90, 81, 56, 55, 40],
-        bezierCurve: false
-    }]
+        label: "Product 1",
+            fillColor: "rgba(220,220,220,0.5)",
+            strokeColor: "rgba(220,220,220,1)",
+            pointColor: "rgba(220,220,220,1)",
+            pointStrokeColor: "#fff",
+            data: [{{data2.moisturizing[0].moyenneT0}}, {{data2.moisturizing[0].moyenneT1}}],
+            bezierCurve: false
+        }, {
+            label: "Product 2",
+            fillColor: "rgba(220,220,220,0.5)",
+            strokeColor: "rgba(220,220,220,1)",
+            pointColor: "rgba(220,220,220,1)",
+            pointStrokeColor: "#fff",
+            data: [{{data2.moisturizing[1].moyenneT0}}, {{data2.moisturizing[1].moyenneT1}}],
+            bezierCurve: false
+        }]
 
 }
 {% endif %}
@@ -193,42 +210,90 @@ var options = {
 var myLine1 = new Chart(document.getElementById("myChart1").getContext("2d"), {
     data: lineChartData1,
     type: "line",
-    options: options
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 - Evolution T0 - T1'
+            }
+        }
+    }
 });
 {% endif %}
 {% if data.graph2 == true %}
 var myLine2 = new Chart(document.getElementById("myChart2").getContext("2d"), {
     data: lineChartData2,
-    type: "scatter",
-    options: options
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 - Average T0 - T1'
+            }
+        }
+    }
 });
 {% endif %}
 {% if data.graph3  == true %}
 var myLine3 = new Chart(document.getElementById("myChart3").getContext("2d"), {
     data: lineChartData3,
-    type: "bar",
-    options: options
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 2 - Evolution T0 - T1'
+            }
+        }
+    }
 });
 {% endif %}
 {% if data.graph4  == true %}
 var myLine3 = new Chart(document.getElementById("myChart4").getContext("2d"), {
     data: lineChartData4,
-    type: "scatter",
-    options: options
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 2 - average T0 - T1'
+            }
+        }
+    }
 });
 {% endif %}
 {% if data.graph5  == true %}
 var myLine3 = new Chart(document.getElementById("myChart5").getContext("2d"), {
     data: lineChartData5,
-    type: "bar",
-    options: options
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 and Product 2 comparaison'
+            }
+        }
+    }
 });
 {% endif %}
 {% if data.graph6  == true %}
 var myLine3 = new Chart(document.getElementById("myChart6").getContext("2d"), {
     data: lineChartData6,
     type: "line",
-    options: options
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 and Product 2 average comparaison'
+            }
+        }
+    }
 });
 {% endif %}
 {% if data.graph7  == true %}

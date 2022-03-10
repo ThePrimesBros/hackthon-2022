@@ -213,9 +213,12 @@
     "psr/simple-cache": {
         "version": "1.0.1"
     },
+<<<<<<< HEAD
     "sabberworm/php-css-parser": {
         "version": "8.4.0"
     },
+=======
+>>>>>>> 2177d959565b3768102a560d7577eda646d64d9b
     "sebastian/cli-parser": {
         "version": "1.0.1"
     },

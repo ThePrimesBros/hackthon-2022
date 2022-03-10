@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Dompdf\Dompdf;
+use App\Core\Excel;
 use Dompdf\Options;
 use App\Entity\Demande;
 use App\Form\RapportType;
@@ -124,11 +125,21 @@ class AdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
 
+
+            $antioxydant = 0;
+            $moisturizing= 1;
+            $barriere=0;
+    
+            $excel = new Excel();
+            $data2 = $excel->import($antioxydant,$moisturizing, $barriere);
+
+            
             $entreprise = $entrepriseRepository->findOneBy(["name" => $data['entreprise']]);
 
             return $this->render('default/mypdf.html.twig', [
                 'data' => $data,
                 'entreprise' => $entreprise,
+                'data2' => $data2
             ]);
         }
             return $this->render('admin/generate.html.twig', [
