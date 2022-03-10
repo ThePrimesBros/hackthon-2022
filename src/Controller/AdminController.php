@@ -128,10 +128,13 @@ class AdminController extends AbstractController
 
             $antioxydant = 1;
             $moisturizing= 1;
-            $barriere=0;
+            $barriere=1;
+            $untreatedSkinAntioxydant = 1;
+            $untreatedSkinMoisturizing = 1 ;
+            $untreatedSkinBarriere = 1 ;
     
             $excel = new Excel();
-            $data2 = $excel->import($antioxydant,$moisturizing, $barriere);
+            $data2 = $excel->import($antioxydant,$moisturizing, $barriere,$untreatedSkinAntioxydant,$untreatedSkinMoisturizing,$untreatedSkinBarriere);
 
             
             $entreprise = $entrepriseRepository->findOneBy(["name" => $data['entreprise']]);
