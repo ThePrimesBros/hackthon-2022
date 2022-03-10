@@ -11,24 +11,55 @@
 
 </style>
 <div id="pdf">
-<img src="{{entreprise.logo}}">
-<h1>{{data.title}}</h1>
-<h2>{{entreprise.name}}</h2>
-<h3>{{entreprise.address}} - {{entreprise.city}}</h3>
+<div class="my-60">
+    <img src="{{entreprise.logo}}" class="w-full mb-2">
+
+    <h1 class="text-center text-2xl mb-1">{{data.title}}</h1>
+    <h2 class="text-center text-xl">{{entreprise.name}}</h2>
+    <h3 class="text-center text-lg mb-5">{{entreprise.address}} - {{entreprise.city}}</h3>
+
+    <div class="">
+        <p class="text-center">Commentaires sur le rapport : {{data.commentary}}</p>
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
 {% if data.graph1 == true %}
-<div id="graph">
+<div id="graph" class="mb-36">
 <canvas id="myChart1"></canvas>
 </div>
 {% endif %}
 {% if data.graph2 == true %}
-<div id="graph">
+<div id="graph" class="mb-36">
 <canvas id="myChart2"></canvas>
 </div>
 {% endif %}
 {% if data.graph3 == true %}
-<div id="graph">
+<div id="graph" class="mb-36">
 <canvas id="myChart3"></canvas>
 </div>
+{% endif %}
+{% if data.graph4 == true %}
+<div id="graph" class="mb-36">
+<canvas id="myChart4"></canvas>
+</div>
+{% endif %}
+{% if data.graph5 == true %}
+<div id="graph" class="mb-36">
+<canvas id="myChart5"></canvas>
+</div>
+{% endif %}
+{% if data.graph6 == true %}
+<div id="graph" class="mb-36">
+<canvas id="myChart6"></canvas>
+</div>
+{% endif %}
+{% if data.graph7 == true %}
+<div id="graph" class="mb-36">
+<canvas id="myChart7"></canvas>
+</div>
+
 {% endif %}
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -56,6 +87,7 @@ html2pdf(element, opt);
 const test = setTimeout(dlPdf, 1000);
 </script>
 <script>
+{% if data.graph1 == true %}
 var lineChartData1 = {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
     datasets: [{
@@ -68,7 +100,91 @@ var lineChartData1 = {
     }]
 
 }
+{% endif %}
+{% if data.graph2 == true %}
+var lineChartData2 = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [{
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        data: [65, 59, 90, 81, 56, 55, 40],
+        bezierCurve: false
+    }]
 
+}
+{% endif %}
+{% if data.graph3 == true %}
+var lineChartData3 = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [{
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        data: [65, 59, 90, 81, 56, 55, 40],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph4 == true %}
+var lineChartData4 = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [{
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        data: [65, 59, 90, 81, 56, 55, 40],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph5 == true %}
+var lineChartData5 = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [{
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        data: [65, 59, 90, 81, 56, 55, 40],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph6 == true %}
+var lineChartData6 = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [{
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        data: [65, 59, 90, 81, 56, 55, 40],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph7 == true %}
+var lineChartData7 = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [{
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        data: [65, 59, 90, 81, 56, 55, 40],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
 var options = {
     bezierCurve: false,
 };
@@ -82,15 +198,43 @@ var myLine1 = new Chart(document.getElementById("myChart1").getContext("2d"), {
 {% endif %}
 {% if data.graph2 == true %}
 var myLine2 = new Chart(document.getElementById("myChart2").getContext("2d"), {
-    data: lineChartData1,
+    data: lineChartData2,
     type: "scatter",
     options: options
 });
 {% endif %}
 {% if data.graph3  == true %}
 var myLine3 = new Chart(document.getElementById("myChart3").getContext("2d"), {
-    data: lineChartData1,
+    data: lineChartData3,
     type: "bar",
+    options: options
+});
+{% endif %}
+{% if data.graph4  == true %}
+var myLine3 = new Chart(document.getElementById("myChart4").getContext("2d"), {
+    data: lineChartData4,
+    type: "scatter",
+    options: options
+});
+{% endif %}
+{% if data.graph5  == true %}
+var myLine3 = new Chart(document.getElementById("myChart5").getContext("2d"), {
+    data: lineChartData5,
+    type: "bar",
+    options: options
+});
+{% endif %}
+{% if data.graph6  == true %}
+var myLine3 = new Chart(document.getElementById("myChart6").getContext("2d"), {
+    data: lineChartData6,
+    type: "line",
+    options: options
+});
+{% endif %}
+{% if data.graph7  == true %}
+var myLine3 = new Chart(document.getElementById("myChart7").getContext("2d"), {
+    data: lineChartData7,
+    type: "line",
     options: options
 });
 {% endif %}

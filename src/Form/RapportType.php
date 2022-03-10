@@ -4,6 +4,7 @@ namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -23,6 +24,22 @@ class RapportType extends AbstractType
             ->add('graph3', CheckboxType::class, [
                 'required'   => false
             ])
+            ->add('graph3', CheckboxType::class, [
+                'required'   => false
+            ])
+            ->add('graph4', CheckboxType::class, [
+                'required'   => false
+            ])
+            ->add('graph5', CheckboxType::class, [
+                'required'   => false
+            ])
+            ->add('graph6', CheckboxType::class, [
+                'required'   => false
+            ])
+            ->add('graph7', CheckboxType::class, [
+                'required'   => false
+            ])
+            ->add('commentary', TextareaType::class)
         ;
     }
 
