@@ -1,2 +1,84 @@
-{{dump(data)}}
+{% extends 'base.html.twig' %}
+{% block body %}
+<style>
+    #pdf {
+        height: auto;
+        width: 595px;
+        /* to centre page on screen*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #graph {
+        height: auto;
+    }
+</style>
+<div id="pdf">
 <h1>{{data.title}}</h1>
+<div id="graph">
+<canvas id="myChart1"></canvas>
+</div>
+<div id="graph">
+<canvas id="myChart2"></canvas>
+</div>
+<div id="graph">
+<canvas id="myChart3"></canvas>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+function dlPdf(){
+var element = document.getElementById('pdf');
+var opt = {
+  margin:       1,
+  filename:     '{{data.title}}.pdf',
+  image:        { type: 'jpeg', quality: 0.98 },
+  html2canvas:  { scale: 2 },
+  jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+};
+
+// New Promise-based usage:
+//html2pdf().set(opt).from(element).save();
+
+// Old monolithic-style usage:
+html2pdf(element, opt);
+}
+const test = setTimeout(dlPdf, 1000);
+</script>
+<script>
+var lineChartData1 = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [{
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,1)",
+        pointColor: "rgba(220,220,220,1)",
+        pointStrokeColor: "#fff",
+        data: [65, 59, 90, 81, 56, 55, 40],
+        bezierCurve: false
+    }]
+
+}
+
+var options = {
+    bezierCurve: false,
+};
+
+
+var myLine1 = new Chart(document.getElementById("myChart1").getContext("2d"), {
+    data: lineChartData1,
+    type: "line",
+    options: options
+});
+
+var myLine2 = new Chart(document.getElementById("myChart2").getContext("2d"), {
+    data: lineChartData1,
+    type: "bar",
+    options: options
+});
+
+var myLine3 = new Chart(document.getElementById("myChart3").getContext("2d"), {
+    data: lineChartData1,
+    type: "line",
+    options: options
+});
+</script>
+{% endblock %}

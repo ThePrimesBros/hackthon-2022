@@ -10,6 +10,7 @@ use App\Form\RelanceType;
 use App\Form\NewsletterType;
 use Symfony\Component\Mime\Email;
 use App\Repository\UserRepository;
+use Symfony\UX\Chartjs\Model\Chart;
 use App\Repository\DemandeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\ManagerRegistry;
@@ -17,6 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminController extends AbstractController
@@ -117,36 +119,16 @@ class AdminController extends AbstractController
 
         $form = $this->createForm(RapportType::class);
         $form->handleRequest($request);
-
+        
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            $pdfOptions = new Options();
-            $pdfOptions->set('defaultFont', 'Arial');
-
-            // Instantiate Dompdf with our options
-            $dompdf = new Dompdf($pdfOptions);
-
-            // Retrieve the HTML generated in our twig file
-            $html = $this->renderView('default/mypdf.html.twig', [
+            return $this->render('default/mypdf.html.twig', [
                 'data' => $data,
             ]);
-
-            // Load HTML to Dompdf
-            $dompdf->loadHtml($html);
-
-            // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
-            $dompdf->setPaper('A4', 'portrait');
-
-            // Render the HTML as PDF
-            $dompdf->render();
-
-            // Output the generated PDF to Browser (force download)
-            $dompdf->stream("rapport_".$data['entreprise']."_test.pdf", [
-                "Attachment" => true
-            ]);
         }
-        return $this->render('admin/generate.html.twig', [
-            'rapportForm' => $form->createView(),
-        ]);
+            return $this->render('admin/generate.html.twig', [
+                'rapportForm' => $form->createView(),
+            ]);
     }
 }

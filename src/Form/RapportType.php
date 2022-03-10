@@ -14,9 +14,15 @@ class RapportType extends AbstractType
         $builder
             ->add('title')
             ->add('entreprise')
-            ->add('graph1', CheckboxType::class)
-            ->add('graph2', CheckboxType::class)
-            ->add('graph3', CheckboxType::class)
+            ->add('graph1', CheckboxType::class, [
+                'required'   => false
+            ])
+            ->add('graph2', CheckboxType::class, [
+                'required'   => false
+            ])
+            ->add('graph3', CheckboxType::class, [
+                'required'   => false
+            ])
         ;
     }
 

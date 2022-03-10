@@ -13,8 +13,22 @@
     {% block javascripts %}
         {#{{ encore_entry_script_tags('app') }}#}
     {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ asset("css/output.css") }}">
 </head>
 <body>
 {% block body %}{% endblock %}
 </body>
+
+{# Editor.js #}
+{# <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+<script src="{{ asset("js/editor.js") }}"></script> #}
+
+{# Chart JS #}
+
+{# <script src="{{ asset("js/chart.js") }}"></script> #}
+
+{# TailwindCSS #}
+{# <script src="https://cdn.tailwindcss.com"></script> #}
+
 </html>
