@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Landing page{% endblock %}
+
+{% block body %}
+{# bg-gradient-to-b from-[#121833] to-[#394160] #}
+
+<div class="vw-100 bg-gradient-to-b from-[#121833] to-[#394160] flex flex-col">
+
+    {% include "components/navbar.html.twig" %}
+
+    <header class="flex flex-col h-[100%] items-center justify-center font-bold">
+        
+        <div class="flex flex-col justify-center">
+            
+            <h1 class="text-[4.5rem] text-white flex flex-col text-center">
+                <span>Digitaly Enabled Lab</span>
+                <span>Consumer Skincare Testing </span>
+            </h1>
+            <button class="self-center rounded-xl bg-WBgreen py-2 px-5 hover:scale-110 transition-all text-[28px] text-slate-900 mt-5">Discover</button>
+            <div class="absolute text-WBgreen -rotate-12">
+                 <div class="text-WBgreen text-opacity-30 text-[30rem]">&</div>
+            </div>
+        </div>
+
+        <div class="flex self-stretch">
+            <div class=" basis-1/4 p-12 text-neutral-200" >
+                <p class="my-2 text-[1.8rem] font-extralight">BIOLOGY +</p>
+                <p class="my-2 text-[1.8rem] font-extralight">IOT NOMADIC LAB+</p>
+                <p class="my-2 text-[1.8rem] font-extralight">CONSUMER APP +</p>
+                <p class="my-2 text-[1.8rem] font-extralight">INSANELY FAST ALGORYTHM</p>
+            </div>
+
+            <div class=" basis-1/2 max-h-80 flex flex-col-reverse text-center">
+                <p class="text-[1.2rem] font-thin">NEW ! DIFFERENT ! BETTER ways to research skincare:
+                <br>
+                Hybrid clinical trials and consumer studies with connected IOT and app</p>
+            </div>
+        </div> 
+    
+    </header>
+
+
+    <section class=" flex mx-11">
+
+        <div class="flex flex-col basis-1/2 justify-center">
+            <h2 class="text-[30px] font-bold">What we do </h2>
+            <p class="text-[30px] font-extralight">What we do Wired beauty is a new datadriven market research company dedicated to cosmetic laboratories.</p>
+            <button class="rounded-xl bg-WBgreen py-2 px-5 hover:scale-110 transition-all text-[20px] text-slate-900 mt-5 self-start">Discover</button>
+        </div>
+
+        <div class="flex basis-1/2">
+            <img src="{{ asset("images/Cylindre.png") }}" alt="Cylindre scientifiques" with="735px" height="735px">
+        </div>
+
+    </section> 
+
+
+
+    <section class="flex mr-52">
+
+        <div class="flex basis-1/2">
+            <img src="{{ asset("images/phone2.png") }}" alt="Phone" width="730px" height="921px">
+        </div>
+
+        <div class="flex flex-col basis-1/2 justify-center">
+            <h2 class="text-[30px] font-bold">DEVICE & APP</h2>
+            <p class="text-[30px] font-extralight">We are a French beauty-tech market research company which invested 1,3M€ to develop a non invasive, portable lab connected device to deliver labgrade and real time</p>
+            <button class="rounded-xl bg-WBgreen py-2 px-5 hover:scale-110 transition-all text-[20px] text-slate-900 mt-5 self-start">Discover</button>
+        </div>
+
+    </section> 
+
+
+    <section class="flex mx-11">
+
+        <div class="flex flex-col basis-1/2 justify-center">
+            <h2 class="text-[30px] font-bold">SCIENTIFIC VALIDATION</h2>
+            <p class="text-[30px] font-extralight"> The Wired Beauty technology is the fruit of a scientific consortium uniting the founders of Wired Beauty</p>
+            <button class="rounded-xl bg-WBgreen py-2 px-5 hover:scale-110 transition-all text-[20px] text-slate-900 mt-5 self-start">Discover</button>
+        </div>
+
+        <div class="flex basis-1/2">
+            <img src="{{ asset("images/Machine.png") }}" alt="Microscope et machines scientifiques">
+        </div>
+
+    </section> 
+
+    <footer class=" flex bg-[#121833] justify-evenly py-8">
+
+        <div class="flex flex-col">
+            <h3 class="text-[30px] text-WBgreen mb-4">Menu</h3>
+            <ul class="text-[24px] font-extralight">
+                <li>What we do</li>
+                <li>New nomadic lab device</li>
+                <li>Scientific validation</li>
+                <li>Who we are</li>
+                <li>Studies and services</li>
+            </ul>
+        </div>
+
+        <div class="flex flex-col">
+            <h3 class="text-[30px] text-WBgreen mb-4">Book a demo</h3>
+            <ul class="text-[24px] font-extralight">
+                <li>We meet ?</li>
+            </ul>
+        </div>
+
+        <div class="flex flex-col ">
+            <h3 class="text-[30px] text-WBgreen mb-4">Contact us</h3>
+            <div class="flex">
+                <img src="{{ asset("images/Groupe 21.svg")}}" alt="phone icon" with="55" height="55">
+                <span class="inline-block text-[24px] font-extralight self-center ml-2">+33 6 71 66 24 26</span>
+            </div>
+        </div>
+
+    </footer>
+
+</div>
+
+{% endblock %}
