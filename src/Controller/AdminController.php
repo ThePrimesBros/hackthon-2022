@@ -126,7 +126,7 @@ class AdminController extends AbstractController
             $data = $form->getData();
 
 
-            $antioxydant = 0;
+            $antioxydant = 1;
             $moisturizing= 1;
             $barriere=0;
     
