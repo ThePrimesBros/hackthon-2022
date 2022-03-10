@@ -78,9 +78,9 @@ class RaportController extends AbstractController
     #[Route('/{id}/import', name: 'app_raport_importData', methods: ['GET'])]
     public function importData(Request $request): Response
     {
-        $antioxydant = 0;
+        $antioxydant = 1;
         $moisturizing= 1;
-        $barriere=0;
+        $barriere=1;
 
         $excel = new Excel();
         $data = $excel->import($antioxydant,$moisturizing, $barriere);
