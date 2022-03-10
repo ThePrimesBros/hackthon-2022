@@ -12,6 +12,7 @@ use Symfony\Component\Mime\Email;
 use App\Repository\UserRepository;
 use Symfony\UX\Chartjs\Model\Chart;
 use App\Repository\DemandeRepository;
+use App\Repository\EntrepriseRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
@@ -114,17 +115,20 @@ class AdminController extends AbstractController
     }
 
     #[Route('/admin/generate', name: 'generate_admin')]
-    public function generatePDF(Request $request)
+    public function generatePDF(Request $request, EntrepriseRepository $entrepriseRepository)
     {
 
         $form = $this->createForm(RapportType::class);
         $form->handleRequest($request);
         
-        
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
+
+            $entreprise = $entrepriseRepository->findOneBy(["name" => $data['entreprise']]);
+
             return $this->render('default/mypdf.html.twig', [
                 'data' => $data,
+                'entreprise' => $entreprise,
             ]);
         }
             return $this->render('admin/generate.html.twig', [

@@ -8,21 +8,28 @@
         margin-left: auto;
         margin-right: auto;
     }
-    #graph {
-        height: auto;
-    }
+
 </style>
 <div id="pdf">
+<img src="{{entreprise.logo}}">
 <h1>{{data.title}}</h1>
+<h2>{{entreprise.name}}</h2>
+<h3>{{entreprise.address}} - {{entreprise.city}}</h3>
+{% if data.graph1 == true %}
 <div id="graph">
 <canvas id="myChart1"></canvas>
 </div>
+{% endif %}
+{% if data.graph2 == true %}
 <div id="graph">
 <canvas id="myChart2"></canvas>
 </div>
+{% endif %}
+{% if data.graph3 == true %}
 <div id="graph">
 <canvas id="myChart3"></canvas>
 </div>
+{% endif %}
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -32,7 +39,11 @@ var opt = {
   margin:       1,
   filename:     '{{data.title}}.pdf',
   image:        { type: 'jpeg', quality: 0.98 },
-  html2canvas:  { scale: 2 },
+  html2canvas: {
+dpi: 300,
+letterRendering: true,
+useCORS: true
+},
   jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
 };
 
@@ -62,23 +73,26 @@ var options = {
     bezierCurve: false,
 };
 
-
+{% if data.graph1 == true %}
 var myLine1 = new Chart(document.getElementById("myChart1").getContext("2d"), {
     data: lineChartData1,
     type: "line",
     options: options
 });
-
+{% endif %}
+{% if data.graph2 == true %}
 var myLine2 = new Chart(document.getElementById("myChart2").getContext("2d"), {
+    data: lineChartData1,
+    type: "scatter",
+    options: options
+});
+{% endif %}
+{% if data.graph3  == true %}
+var myLine3 = new Chart(document.getElementById("myChart3").getContext("2d"), {
     data: lineChartData1,
     type: "bar",
     options: options
 });
-
-var myLine3 = new Chart(document.getElementById("myChart3").getContext("2d"), {
-    data: lineChartData1,
-    type: "line",
-    options: options
-});
+{% endif %}
 </script>
 {% endblock %}
