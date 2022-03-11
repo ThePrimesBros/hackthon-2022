@@ -23,7 +23,7 @@ class Raport
     private $path;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="float")
      */
     private $price;
 

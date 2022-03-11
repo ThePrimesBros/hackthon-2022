@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Core\Excel;
+use App\Core\Stripe;
 use App\Entity\Raport;
 use App\Form\RaportType;
 use App\Repository\RaportRepository;
@@ -91,5 +92,17 @@ class RaportController extends AbstractController
         dd($data);
 
         return $data;
+    }
+
+    #[Route('/{id}/paiement', name: 'app_raport_paiement', methods: ['GET','POST'])]
+    public function paiementRaport(Request $request,Raport $raport, RaportRepository $raportRepository): Response
+
+    {
+        $stripe = new Stripe();
+        $stripe->create($raport);
+
+        return $this->render('raport/index.html.twig', [
+            'raports' => $raportRepository->findAll(),
+        ]);
     }
 }
