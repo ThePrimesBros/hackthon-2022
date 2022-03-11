@@ -1,0 +1,28 @@
+<svg id="Groupe_98" data-name="Groupe 98" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="632.922" height="277.493" viewBox="0 0 632.922 277.493">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_104" data-name="Rectangle 104" width="632.922" height="277.493" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="Tracé_969" data-name="Tracé 969" d="M561.316,27.9c-64.465,65.912-116.807,31-116.807,31s-38.158-21.912-46.724,23c-3.558,15.912-19.8,63.088-69.249,18s-92.39-61.912-123.7,24.516c-3.779,7.429-7.067,28.573-31.2,3.378-12.471-13.02-22.543,7.235-34.924,27.49-11.576,18.936-25.169,37.873-44.625,29.616C53.82,167.814.865,276.991.865,276.991l631.37-.089V37.932S629.1,1,605.333,1c-10.312,0-24.509,6.957-44.017,26.9" transform="translate(-0.865 -1)" fill="none"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.534" y2="0.919" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#91eb9d"/>
+      <stop offset="0.512" stop-color="#91eb9d" stop-opacity="0.318"/>
+      <stop offset="0.911" stop-color="#91eb9d" stop-opacity="0.051"/>
+      <stop offset="1" stop-color="#91eb9d" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g id="Groupe_97" data-name="Groupe 97" clip-path="url(#clip-path)">
+    <g id="Groupe_94" data-name="Groupe 94" transform="translate(0.722 1)">
+      <g id="Groupe_93" data-name="Groupe 93" clip-path="url(#clip-path-2)">
+        <rect id="Rectangle_102" data-name="Rectangle 102" width="641.603" height="255.258" transform="translate(-4.893 -18.507)" fill="url(#linear-gradient)"/>
+      </g>
+    </g>
+    <g id="Groupe_96" data-name="Groupe 96">
+      <g id="Groupe_95" data-name="Groupe 95" clip-path="url(#clip-path)">
+        <path id="Tracé_970" data-name="Tracé 970" d="M.864,276.99S53.82,167.813,94.088,184.9s55.42-82.3,79.55-57.106,27.417,4.051,31.2-3.378c31.312-86.428,74.256-69.6,123.7-24.516s65.692-2.089,69.25-18c8.564-44.912,46.723-23,46.723-23s52.343,34.911,116.807-31,70.918,10.029,70.918,10.029" transform="translate(-0.143)" fill="none" stroke="#b4ffbe" stroke-miterlimit="10" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>

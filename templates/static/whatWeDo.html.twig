@@ -1,0 +1,307 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}What we do{% endblock %}
+
+{% block body %}
+
+<div class="vw-100 flex flex-col">
+
+    
+    <header class="relative flex-col">
+
+        <img src="{{asset("images/Groupe126.png")}}" alt="scientific researches on microscope" class="absolute z-[-900] h-min-[336px] shrink-0">
+        
+        {% include "components/navbar.html.twig" with {'display': ""} %}
+
+        <h1 class="text-[4.5rem] text-white text-center z-[1000] font-bold absolute left-[50%] translate-x-[-50%]">What we do</h1>
+
+    </header>
+
+    <div class="bg-gradient-to-b from-[#121833] to-[#394160] mt-[24rem]">
+
+        <section class="flex px-28">
+
+            <div class="basis-1/2">
+                <h2 class="text-WBgey text-[40px] my-12">BeautyTech X Skincare</h2>
+
+                <h3 class="text-WBgreen text-[30px] mb-4 font-bold">WE RESEARCH SKINCARE ----------------------------------</h3>
+
+                <p class="text-[18px] mb-2">The new datadriven market research company dedicated to cosmetic laboratories.</p>
+                <p class="text-[18px] mb-4">We help our clients evaluate and develop skincare formulae by comparing <br> cosmetics on statistically viable samples of men & women (1000 people):</p>
+
+
+                   
+
+                    <div class="flex flex-col">
+
+                        <div class="flex my-1">
+                            <div class="relative">
+                                <img src="{{asset("images/polygone.svg")}}" alt="" width="31px" height="36px" class="z-[6666] translate-y-[20%]">
+                                <div class="absolute w-[1px] h-[100%] top-[50%] left-[50%] translate-x-[-50%] border-dashed border-WBgreen border-[1px] z-[5000]"></div>
+                            </div>
+                            <div class="bg-WBdarkGrey py-3 px-2 block ml-4 w-[80%]">
+                                <p class="text-[20px]">The antioxydative and moisterizing effect of formulae (in vivo)</p>
+                            </div>
+                            
+                        </div>
+
+                        <div class="flex my-1">
+                            <div class="relative">
+                                <img src="{{asset("images/polygone.svg")}}" alt="" width="31px" height="36px" class="z-[6666] translate-y-[20%]">
+                                <div class="absolute w-[1px] h-[100%] top-[50%] left-[50%] translate-x-[-50%] border-dashed border-WBgreen border-[1px] z-[5000]"></div>
+                            </div>
+                            <div class="bg-WBdarkGrey py-3 px-2 block ml-4 w-[80%]">
+                                <p class="text-[20px]">The antioxydative and moisterizing effect of ingredients (in vitro) (cf Reach)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex my-1">
+                            <div class="relative">
+                                <img src="{{asset("images/polygone.svg")}}" alt="" width="31px" height="36px" class="z-[6666] translate-y-[20%]">
+                                <div class="absolute w-[1px] h-[100%] top-[50%] left-[50%] translate-x-[-50%] border-dashed border-WBgreen border-[1px] z-[5000]"></div>
+                            </div>
+                            <div class="bg-WBdarkGrey py-3 px-2 block ml-4 w-[80%]">
+                                <p class="text-[20px]">Consumer feedback after product use</p>
+                            </div>
+                        </div>
+
+                        <div class="flex my-1">
+                            <div class="relative">
+                                <img src="{{asset("images/polygone.svg")}}" alt="" width="31px" height="36px" class="z-[6666] translate-y-[20%]">
+                                <div class="absolute w-[1px] h-[100%] top-[50%] left-[50%] translate-x-[-50%] border-dashed border-WBgreen border-[1px] z-[5000]"></div>
+                            </div>
+                            <div class="bg-WBdarkGrey py-3 px-2 block ml-4 w-[80%]">
+                                <p class="text-[20px]">Environmental conditions (UV pollution) surronding the consumer’s lifestyle</p>
+                            </div>
+                        </div>
+
+                        <div class="flex my-1">
+                            <div class="relative">
+                                <img src="{{asset("images/polygone.svg")}}" alt="" width="31px" height="36px" class="z-[6666] translate-y-[20%]">
+                                {# <div class="absolute w-[1px] h-[100%] top-[50%] left-[50%] translate-x-[-50%] border-dashed border-WBgreen border-[1px] z-[5000]"></div> #}
+                            </div>
+                            <div class="bg-WBdarkGrey py-3 px-2 block ml-4 w-[80%]">
+                                <p class="text-[20px]">Skincare performance after 1 day – 8 days – 15 days - X days.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+            </div>
+            
+            <div class="basis-1/3 relative">
+                <img src="{{asset("images/lab-truc1.jpeg")}}" alt="" width="395" height="270px" class="rounded-2xl transition-x-[–50%]">
+                <img src="{{asset("images/cotton.jpeg")}}" alt="" width="395" height="270px" class="rounded-2xl  transition-y-[50%]">
+            </div>
+
+        </section>
+
+        
+        <section class="flex px-28">
+
+            <div class="basis-1/2 relative">
+
+                <img src="{{ asset("images/data.png") }}" alt="">
+                
+
+            </div>
+
+            <div class="basis-1/2">
+
+                <h3 class="text-WBgreen text-[30px] mb-4 font-bold">WE RELY ON DATA & TECHNOLOGY -------------------------------</h3>
+
+                <p class="text-[18px] mb-2 leading-10 font-light">
+                1. Proprietary nomadic lab device & patented skin patches to decipher skin reactions and ingredient presence<br>
+                2. Easy multi-lingual smartphone app and customer feedback<br>
+                3. Geolocalisation and exposome data (UV - pollution - temperature)<br>
+                4. Repeatability of protocols in real life conditions (ie bathrooms)<br>
+                5. Large cohorts it needed 6. Saas and European data center</p>
+
+            </div>
+
+        
+        </section>
+
+
+        <section class="flex px-28">
+
+            <div class="basis-1/2">
+                <h2 class="text-WBgey text-[40px] my-12">BeautyTech X Skincare</h2>
+
+                <h3 class="text-WBgreen text-[30px] mb-4 font-bold">WE MEASURE SKIN VITALITY RESPONSE & CONSUMER PERCEPTION SIMULTANOUSLY</h3>
+
+                <p class="text-[18px] mb-2">our clients evaluate and develop skincare formulae by comparing cosmetics on statistically viable samples of men & women (1000 people) :</p>
+
+
+                   
+
+                    <div class="flex flex-col">
+
+                        <div class="flex my-1">
+                            <div class="relative">
+                                <img src="{{asset("images/polygone.svg")}}" alt="" width="31px" height="36px" class="z-[6666] translate-y-[20%]">
+                                <div class="absolute w-[1px] h-[100%] top-[50%] left-[50%] translate-x-[-50%] border-dashed border-WBgreen border-[1px] z-[5000]"></div>
+                            </div>
+                            <div class="bg-WBdarkGrey py-3 px-2 block ml-4 w-[80%]">
+                                <p class="text-[20px]">The antioxydative and moisterizing effect of formulae (in vivo)</p>
+                            </div>
+                            
+                        </div>
+
+                        <div class="flex my-1">
+                            <div class="relative">
+                                <img src="{{asset("images/polygone.svg")}}" alt="" width="31px" height="36px" class="z-[6666] translate-y-[20%]">
+                                <div class="absolute w-[1px] h-[100%] top-[50%] left-[50%] translate-x-[-50%] border-dashed border-WBgreen border-[1px] z-[5000]"></div>
+                            </div>
+                            <div class="bg-WBdarkGrey py-3 px-2 block ml-4 w-[80%]">
+                                <p class="text-[20px]">The antioxydative and moisterizing effect of ingredients (in vitro) > see REACH</p>
+                            </div>
+                        </div>
+
+                        <div class="flex my-1">
+                            <div class="relative">
+                                <img src="{{asset("images/polygone.svg")}}" alt="" width="31px" height="36px" class="z-[6666] translate-y-[20%]">
+                                <div class="absolute w-[1px] h-[100%] top-[50%] left-[50%] translate-x-[-50%] border-dashed border-WBgreen border-[1px] z-[5000]"></div>
+                            </div>
+                            <div class="bg-WBdarkGrey py-3 px-2 block ml-4 w-[80%]">
+                                <p class="text-[20px]">The consumer feedback after product use</p>
+                            </div>
+                        </div>
+
+                        <div class="flex my-1">
+                            <div class="relative">
+                                <img src="{{asset("images/polygone.svg")}}" alt="" width="31px" height="36px" class="z-[6666] translate-y-[20%]">
+                                <div class="absolute w-[1px] h-[100%] top-[50%] left-[50%] translate-x-[-50%] border-dashed border-WBgreen border-[1px] z-[5000]"></div>
+                            </div>
+                            <div class="bg-WBdarkGrey py-3 px-2 block ml-4 w-[80%]">
+                                <p class="text-[20px]">The environmental conditions (UV pollution) surronding the consumer’s lifestyle</p>
+                            </div>
+                        </div>
+
+                        <div class="flex my-1">
+                            <div class="relative">
+                                <img src="{{asset("images/polygone.svg")}}" alt="" width="31px" height="36px" class="z-[6666] translate-y-[20%]">
+                                {# <div class="absolute w-[1px] h-[100%] top-[50%] left-[50%] translate-x-[-50%] border-dashed border-WBgreen border-[1px] z-[5000]"></div> #}
+                            </div>
+                            <div class="bg-WBdarkGrey py-3 px-2 block ml-4 w-[80%]">
+                                <p class="text-[20px]">The skincare performance after 1 day – 8 days – 15 days - X days.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+            </div>
+            
+            <div class="basis-1/2 mt-36">
+                <img src="{{asset("images/graph.svg")}}" alt="" width="632">
+            </div>
+
+        </section>
+
+
+        <section class="flex px-28">
+
+            <div class="basis-1/2 relative flex justify-evenly">
+
+                <img src="{{ asset("images/etagere.jpeg") }}" width="260" class="rounded-[27px]">
+                <img src="{{ asset("images/gens.jpeg") }}" width="260" class="rounded-[27px]">
+                
+
+            </div>
+
+            <div class="basis-1/2 self-center">
+
+                <h3 class="text-WBgreen text-[30px] mb-4 font-bold">WE WORK FOR LABS AND MARKETING TEAMS</h3>
+
+                <p class="text-[18px] mb-2 leading-10 font-light">
+                Combining efforts with countries usual CRO’s In all countries,<br>
+                even in China where anonymized data is key</p>
+
+            </div>
+
+        
+        </section>
+
+
+        <section class="flex px-28">
+
+            <div class="basis-1/2">
+                <h2 class="text-WBgey text-[40px] my-12">BeautyTech X Skincare</h2>
+
+                <h3 class="text-WBgreen text-[30px] mb-4 font-bold">WE MEASURE SKIN VITALITY RESPONSE & CONSUMER PERCEPTION SIMULTANOUSLY</h3>
+
+                <p class="text-[18px] mb-2">our clients evaluate and develop skincare formulae by comparing cosmetics on statistically viable samples of men & women (1000 people) :</p>
+
+
+                   
+
+                    <div class="flex flex-col">
+
+                        <div class="flex my-1">
+                            <div class="relative">
+                                <img src="{{asset("images/polygone.svg")}}" alt="" width="31px" height="36px" class="z-[6666] translate-y-[20%]">
+                                <div class="absolute w-[1px] h-[100%] top-[50%] left-[50%] translate-x-[-50%] border-dashed border-WBgreen border-[1px] z-[5000]"></div>
+                            </div>
+                            <div class="bg-WBdarkGrey py-3 px-2 block ml-4 w-[80%]">
+                                <p class="text-[20px]">DISCOVER new claims on large skin type cohorts</p>
+                            </div>
+                            
+                        </div>
+
+                        <div class="flex my-1">
+                            <div class="relative">
+                                <img src="{{asset("images/polygone.svg")}}" alt="" width="31px" height="36px" class="z-[6666] translate-y-[20%]">
+                                <div class="absolute w-[1px] h-[100%] top-[50%] left-[50%] translate-x-[-50%] border-dashed border-WBgreen border-[1px] z-[5000]"></div>
+                            </div>
+                            <div class="bg-WBdarkGrey py-3 px-2 block ml-4 w-[80%]">
+                                <p class="text-[20px]">The antioxydative and moisterizing effect of ingredients (in vitro) > see REACH</p>
+                            </div>
+                        </div>
+
+                        <div class="flex my-1">
+                            <div class="relative">
+                                <img src="{{asset("images/polygone.svg")}}" alt="" width="31px" height="36px" class="z-[6666] translate-y-[20%]">
+                                <div class="absolute w-[1px] h-[100%] top-[50%] left-[50%] translate-x-[-50%] border-dashed border-WBgreen border-[1px] z-[5000]"></div>
+                            </div>
+                            <div class="bg-WBdarkGrey py-3 px-2 block ml-4 w-[80%]">
+                                <p class="text-[20px]">The consumer feedback after product use</p>
+                            </div>
+                        </div>
+
+                        <div class="flex my-1">
+                            <div class="relative">
+                                <img src="{{asset("images/polygone.svg")}}" alt="" width="31px" height="36px" class="z-[6666] translate-y-[20%]">
+                                <div class="absolute w-[1px] h-[100%] top-[50%] left-[50%] translate-x-[-50%] border-dashed border-WBgreen border-[1px] z-[5000]"></div>
+                            </div>
+                            <div class="bg-WBdarkGrey py-3 px-2 block ml-4 w-[80%]">
+                                <p class="text-[20px]">The environmental conditions (UV pollution) surronding the consumer’s lifestyle</p>
+                            </div>
+                        </div>
+
+                        <div class="flex my-1">
+                            <div class="relative">
+                                <img src="{{asset("images/polygone.svg")}}" alt="" width="31px" height="36px" class="z-[6666] translate-y-[20%]">
+                                {# <div class="absolute w-[1px] h-[100%] top-[50%] left-[50%] translate-x-[-50%] border-dashed border-WBgreen border-[1px] z-[5000]"></div> #}
+                            </div>
+                            <div class="bg-WBdarkGrey py-3 px-2 block ml-4 w-[80%]">
+                                <p class="text-[20px]">The skincare performance after 1 day – 8 days – 15 days - X days.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+            </div>
+            
+            <div class="basis-1/2 mt-36">
+                <img src="{{asset("images/main.jpeg")}}" alt="" height="503" class="rounded-[49px]">
+            </div>
+
+        </section>
+
+    </div>
+
+    {% include "components/footer.html.twig" %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,257 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Wired Beauty | About Us {% endblock %}
+
+{% block body %}
+
+    <div class="vw-100 bg-gradient-to-b from-[#121833] to-[#394160] flex flex-col">
+    
+        {% include 'components/navbar.html.twig' with {'display': "absolute"} %}
+
+        <header class="relative flex flex-col">
+            <img src="{{asset("images/header-team.png")}}" alt="scientific researches on microscope" class="h-max-[336px] shrink-0">
+            <h1 class=" absolute text-[4.5rem] text-white text-center font-bold left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">Who we are</h1>
+
+        </header>
+
+        <section class="px-28">
+
+          <h2 class="text-WBgey text-[40px] my-12">OUR STORY</h2>
+
+          <div class="flex justify-evenly">
+
+              <div class="flex flex-col max-w-[40%]">
+                  <h3 class="text-WBgreen text-[30px] mb-4 font-bold">BEAUTY SCIENCE & PROOFS</h3>
+                  <p class="text-[18px] mb-2 ">Wired Beauty as of today is a saas based start-up co-founded by Stanislas and Sophie, two beauty experts who become friends while working toghether at l’Oréal. Stanislas initiated the scientific research on electrochemistry and antiox measurement to develop a skincare prescription tool, and launched a first B2C sun prevention tool (mapo solar).</p>
+              </div>
+
+              <div class="flex flex-col max-w-[40%]">
+                  <h3 class="text-WBgreen text-[30px] mb-4 font-extralight">------------------------------------</h3>
+                  <p class="text-[18px] mb-2">In 2021, considering the blue ocean of cosmetic market research and the latest demands of consumer on efficiency proofs especially in Asia, the two of them decided to pivot to a 100% B2B Saas company, convinced by the potential of this technology. As of today, Wired Beauty Technologies has invested 1.3M€ in research on their exclusive IOT, mobile app, algorithand scientific exposome and suncare knowledge partnering with a top-notch consortium ( APHP et Qima lien a créer vers page scientific)</p>
+              </div>
+
+              <div class="relative">
+                <img src="{{asset("images/cliente-exa.svg")}}" alt="scientific researches on microscope" class="shrink-0 object-none h-[250px]" width="600px">
+                <img src="{{asset("images/client-exa.svg")}}" alt="scientific researches on microscope" class="shrink-0 object-none h-[250px] translate-x-[-27%] translate-y-[-40%]" width="600px">
+              </div>
+
+          </div>
+            
+            
+        </section>
+
+       <section class="px-28 ">
+
+          <h3 class="text-WBgreen text-[30px] font-bold mb-16 ">BMARKET INSIGHTS</h3>
+
+          <div class="flex justify-evenly mt-6">
+
+              <div class="p-[5px] bg-gradient-to-b from-[#9EAACC] to-[#91EB9D] rounded-3xl basis-1/4 mx-4 shadow-md shadow-WBgreen">
+                <div class="flex flex-col justify-center self-center bg-WBdarkGrey rounded-3xl h-[100%]">
+                    <p class="text-[18px] mx-8 py-6">
+                    <span class="font-bold text-WBgreen">Consumer demand transparency on formulae performance.</span>In their eyes,
+                    clinical tests done on samples of 30/40 people are <span class="font-bold text-WBgreen">not good enough</span> !
+                    This is the reason why <span class="font-bold text-WBgreen">peer-to-peer</span>
+                    recommendation and non-scientific influencers info gain share of voice.
+                    Brands need to recover credibility.
+                    </p>
+                </div>
+              </div>
+
+              <div class="p-[5px] bg-gradient-to-b from-[#9EAACC] to-[#91EB9D] rounded-3xl basis-1/4 mx-4 shadow-md shadow-WBgreen">
+                <div class="flex flex-col justify-center self-center bg-WBdarkGrey rounded-3xl h-[100%]">
+                    <p class="text-[18px] mx-8 py-6">
+                    Consumer and brands demand seek for personalized solutions that only big data can understand.
+                    </p>
+                </div>
+              </div>
+
+              <div class="p-[5px] bg-gradient-to-b from-[#9EAACC] to-[#91EB9D] rounded-3xl basis-1/4 mx-4 shadow-md shadow-WBgreen">
+                <div class="flex flex-col justify-center self-center bg-WBdarkGrey rounded-3xl h-[100%]">
+                    <p class="text-[18px] mx-8 py-6">
+                    <span class="font-bold text-WBgreen">Data</span> helps discover of new frontiers and claims, especially in the exposome field where human skin self-defends against aggressions and naturally produces NMF or antioxidants. 
+                    <span class="font-bold text-WBgreen">Can cosmetic beat natural skin self-defense ? Yes! but how much ?</span>
+                    </p>
+                </div>
+              </div>
+
+              <div class="p-[5px] bg-gradient-to-b from-[#9EAACC] to-[#91EB9D] rounded-3xl basis-1/4 mx-4 shadow-md shadow-WBgreen">
+                <div class="flex flex-col justify-center self-center bg-WBdarkGrey rounded-3xl h-[100%]">
+                    <p class="text-[18px] mx-8 py-6">
+                    Trends like clean beauty or legislation (Reach especially) impose frequent and costly 
+                    <span class="font-bold text-WBgreen">ingredient changes. Can we know up-front which will perform best ? At what dosage ?</span>
+                    </p>
+                </div>
+              </div>
+  
+          </div>
+            
+        </section>
+
+        <section class="px-28 mt-20">
+
+          <h3 class="text-WBgreen text-[30px] mb-4 font-bold mt-16">OUR BELIEFS</h3>
+
+          <div class="flex justify-evenly mt-6">
+
+              <div class="flex flex-col items-center">
+                <img src="{{asset("images/check-polygone.svg")}}" alt="">
+                <p class="text-[18px] mb-2 text-center mt-4">IOT can save R&D money and speed<br>-up product launch tempo</p>
+              </div>
+
+              <div class="flex flex-col items-center">
+                <img src="{{asset("images/check-polygone.svg")}}" alt="">
+                <p class="text-[18px] mb-2 text-center mt-4">Repeatability of protocols increases<br> reliability of results</p>
+              </div>
+
+              <div class="flex flex-col items-center">
+                <img src="{{asset("images/check-polygone.svg")}}" alt="">
+                <p class="text-[18px] mb-2 text-center mt-4">Data Science can help cosmetic<br> scientists</p>
+              </div>
+  
+          </div>
+            
+        </section>
+
+        <section class="px-28 flex mt-20">
+
+          <div class="basis-1/2 flex flex-col mr-16">
+            <h3 class="text-WBgreen text-[30px] mb-4 font-bold mt-16">OUR TEAM & SCIENTIFIC CONSORTIUM</h3>
+            <p class="text-[18px] mb-2 mt-4 text-left">
+            Wired Beauty as of today is a saas based start-up co-founded by Stanislas and Sophie, 
+            two beauty experts who become friends while working toghether at l’Oréal.<br><br> 
+            Wired Beaty Technologies is a three-sided French tech team combining the intelligence of two seasoned cosmetic professionals lien vers bio Sophie et Stan , 
+            the electro chemistry knowledge of our CRO partner in Toulouse (Qima : lien vers qima) and the scientific skin expertise of a renowned dermatologist Mrs Tu-ahn DUONG lien vers BIO of the Henri Mondor Hospital in Paris. 
+            lien vers APHP<br><br>
+            It is the quality of our employees and partners that build the trust we seek.<br><br>
+            Because of their singular competences and contagious energy, 
+            they help our clients improve and simplify skincare research data.</p>
+          </div>
+          
+          <div class="basis-1/2 relative]  mt-20">
+
+            <div class="absolute p-[5px] bg-gradient-to-b from-[#9EAACC] to-[#91EB9D] rounded-3xl basis-1/4 mx-4 z-[6789] max-w-[457px] translate-x-[60%] translate-y-[50%] mr-10 shadow-md shadow-WBgreen">
+                <div class="flex flex-col self-center bg-WBdarkGrey rounded-3xl h-[100%] py-7">
+                    <p class="text-[18px] mx-8 font-bold text-center mb-4">YOUR EXPERTISE</p>
+                    <p class="text-[18px] mx-8 mb-2">1. Scientific knowledge of exposome and skincare</p>
+                    <p class="text-[18px] mx-8 mb-2">2. Data science and statistics</p>
+                    <p class="text-[18px] mx-8 mb-2">3. Ai and signal interpretation</p>
+                    <p class="text-[18px] mx-8 mb-2">4. Digitally enabled clinical trials and consumer blind tests</p>
+                </div>
+              </div>
+
+            <img src="{{asset("images/science-team.jpeg")}}" alt="" class="rounded-3xl absolute shadow-md h-[294px] translate-x-[10%]">
+
+          </div>
+
+        </section>
+
+        <section class="px-28 flex flex-col mt-20 mb-32">
+
+          <h3 class="text-WBgreen text-[30px] mb-4 font-bold mt-16">OUR TEAM</h3>
+
+          <div class="flex justify-center">
+            
+            <div style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);" class="h-[195px] w-[170px]">
+              <img src="{{asset("images/cliente-exa.svg")}}" alt="">
+            </div>
+
+            <div class="w-[12px] h-[44px] bg-[#9CCC95] translate-y-[165%] mx-2"></div>
+
+            <div class="exagone h-[195px] w-[170px] bg-[#707070] flex justify-center items-center">
+              <div class="exagone h-[188px] w-[164px] bg-WBdarkGrey flex justify-center items-center p-5">
+                <img src="{{asset("images/logo.svg")}}" alt="" class="object-center h-[100px]">
+              </div>
+            </div>
+
+            <div class="w-[12px] h-[44px] bg-[#9CCC95] translate-y-[165%] mx-2"></div>
+
+            <div style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);" class="h-[195px] w-[170px]">
+              <img src="{{asset("images/client-exa.svg")}}" alt="">
+            </div>
+
+          </div>
+
+
+          <div class="flex justify-center">
+
+            <div class="exagone h-[195px] w-[170px] bg-[#707070] flex justify-center items-center">
+              <div class="exagone h-[188px] w-[164px] bg-WBdarkGrey">
+              </div>
+            </div>
+
+            <div class="w-[12px] h-[44px] bg-[#6E8D77] translate-y-[165%] mx-2"></div>
+
+            <div class="exagone h-[195px] w-[170px] bg-[#707070] flex justify-center items-center">
+              <div class="exagone h-[188px] w-[164px] bg-WBdarkGrey">
+              </div>
+            </div>
+
+            <div class="w-[12px] h-[44px] bg-[#6E8D77] translate-y-[165%] mx-2"></div>
+
+            <div class="exagone h-[195px] w-[170px] bg-[#707070] flex justify-center items-center">
+              <div class="exagone h-[188px] w-[164px] bg-WBdarkGrey">
+              </div>
+            </div>
+
+            <div class="w-[12px] h-[44px] bg-[#6E8D77] translate-y-[165%] mx-2"></div>
+
+            <div class="exagone h-[195px] w-[170px] bg-[#707070] flex justify-center items-center">
+              <div class="exagone h-[188px] w-[164px] bg-WBdarkGrey">
+              </div>
+            </div>
+          
+          </div>
+
+          <div class="flex justify-center">
+
+            <div class="exagone h-[195px] w-[170px] bg-[#707070] flex justify-center items-center">
+              <div class="exagone h-[188px] w-[164px] bg-WBdarkGrey flex justify-center items-center">
+                <img src="{{asset("images/people2.png")}}" alt="" class="object-fill h-[200px]">
+              </div>
+            </div>
+
+            <div class="w-[12px] h-[44px] bg-[#6E8D77] translate-y-[165%] mx-2"></div>
+
+            <div class="exagone h-[195px] w-[170px] bg-[#707070] flex justify-center items-center">
+              <div class="exagone h-[188px] w-[164px] bg-WBdarkGrey flex justify-center items-center">
+                <img src="{{asset("images/people1.png")}}" alt="" class="object-fill h-[200px]">
+              </div>
+            </div>
+
+            <div class="w-[12px] h-[44px] bg-[#6E8D77] translate-y-[165%] mx-2"></div>
+
+            <div class="exagone h-[195px] w-[170px] bg-[#707070] flex justify-center items-center">
+              <div class="exagone h-[188px] w-[164px] bg-WBdarkGrey">
+              
+              </div>
+            </div>
+
+            <div class="w-[12px] h-[44px] bg-[#6E8D77] translate-y-[165%] mx-2"></div>
+
+            <div class="exagone h-[195px] w-[170px] bg-[#707070] flex justify-center items-center">
+              <div class="exagone h-[188px] w-[164px] bg-WBdarkGrey flex justify-center items-center">
+                <img src="{{asset("images/people3.png")}}" alt="" class="object-fill h-[200px]">
+              </div>
+            </div>
+
+            <div class="w-[12px] h-[44px] bg-[#6E8D77] translate-y-[165%] mx-2"></div>
+
+            <div class="exagone h-[195px] w-[170px] bg-[#707070] flex justify-center items-center">
+              <div class="exagone h-[188px] w-[164px] bg-WBdarkGrey flex justify-center items-center">
+                <img src="{{asset("images/people4.png")}}" alt="" class="object-center">
+              </div>
+            </div>
+
+            
+          
+          </div>
+
+
+        </section>
+
+        {% include "components/footer.html.twig" %}
+
+    </div>
+
+{% endblock %}
