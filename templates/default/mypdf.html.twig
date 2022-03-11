@@ -241,11 +241,11 @@ const test = setTimeout(dlPdf, 1000);
 <script>
 {% if data.graph1 == true %}
 var lineChartData1 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(255,255,0,1)",
         borderColor: "rgba(0,255,0,1)",
-        data: [{{data2.moisturizing[0].product0SumT0}}, {{data2.moisturizing[0].product0SumT1}}],
+        data: [{{data2.moisturizing[0].product0SumT0}}, {{data2.moisturizing[0].product0SumT1}}, {{data2.moisturizing[0].product0SumT2}}, {{data2.moisturizing[0].product0SumT3}}],
         bezierCurve: false
     }]
 
@@ -253,11 +253,11 @@ var lineChartData1 = {
 {% endif %}
 {% if data.graph2 == true %}
 var lineChartData2 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(0,255,0,1)",
         borderColor: "rgba(255,255,0,1)",
-        data: [{{data2.moisturizing[0].moyenneT0}}, {{data2.moisturizing[0].moyenneT1}}],
+        data: [{{data2.moisturizing[0].moyenneT0}}, {{data2.moisturizing[0].moyenneT1}}, {{data2.moisturizing[0].moyenneT2}}, {{data2.moisturizing[0].moyenneT3}}],
         bezierCurve: false
     }]
 
@@ -265,11 +265,11 @@ var lineChartData2 = {
 {% endif %}
 {% if data.graph3 == true %}
 var lineChartData3 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(0,255,255,1)",
         borderColor: "rgba(0,0,255,1)",
-        data: [{{data2.moisturizing[1].product1SumT0}}, {{data2.moisturizing[1].product1SumT1}}],
+        data: [{{data2.moisturizing[1].product1SumT0}}, {{data2.moisturizing[1].product1SumT1}}, {{data2.moisturizing[1].product1SumT2}}, {{data2.moisturizing[1].product1SumT3}}],
         bezierCurve: false
     }]
 
@@ -277,11 +277,11 @@ var lineChartData3 = {
 {% endif %}
 {% if data.graph4 == true %}
 var lineChartData4 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(0,0,255,1)",
         borderColor: "rgba(0,255,255,1)",
-        data: [{{data2.moisturizing[1].moyenneT0}}, {{data2.moisturizing[1].moyenneT1}}],
+        data: [{{data2.moisturizing[1].moyenneT0}}, {{data2.moisturizing[1].moyenneT1}}, {{data2.moisturizing[1].moyenneT2}}, {{data2.moisturizing[1].moyenneT3}}],
         bezierCurve: false
     }]
 
@@ -289,36 +289,36 @@ var lineChartData4 = {
 {% endif %}
 {% if data.graph5 == true %}
 var lineChartData5 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
             label: "Product 1",
             backgroundColor: "rgba(255,255,0,1)",
             borderColor: "rgba(0,255,0,1)",
-            data: [{{data2.moisturizing[0].product0SumT0}}, {{data2.moisturizing[0].product0SumT1}}],
+            data: [{{data2.moisturizing[0].product0SumT0}}, {{data2.moisturizing[0].product0SumT1}}, {{data2.moisturizing[0].product0SumT2}}, {{data2.moisturizing[0].product0SumT3}}],
             bezierCurve: false
         }, {
             label: "Product 2",
             backgroundColor: "rgba(0,255,0,1)",
             borderColor: "rgba(255,255,0,1)",
-            data: [{{data2.moisturizing[1].product1SumT0}}, {{data2.moisturizing[1].product1SumT1}}],
+            data: [{{data2.moisturizing[1].product1SumT0}}, {{data2.moisturizing[1].product1SumT1}}, {{data2.moisturizing[1].product1SumT2}}, {{data2.moisturizing[1].product1SumT3}}],
             bezierCurve: false
     }]
 }
 {% endif %}
 {% if data.graph6 == true %}
 var lineChartData6 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         label: "Product 1",
             backgroundColor: "rgba(0,255,255,1)",
             borderColor: "rgba(0,0,255,1)",
-            data: [{{data2.moisturizing[0].moyenneT0}}, {{data2.moisturizing[0].moyenneT1}}],
+            data: [{{data2.moisturizing[0].moyenneT0}}, {{data2.moisturizing[0].moyenneT1}}, {{data2.moisturizing[0].moyenneT2}}, {{data2.moisturizing[0].moyenneT3}}],
             bezierCurve: false
         }, {
             label: "Product 2",
             backgroundColor: "rgba(0,0,255,1)",
             borderColor: "rgba(0,255,255,1)",
-            data: [{{data2.moisturizing[1].moyenneT0}}, {{data2.moisturizing[1].moyenneT1}}],
+            data: [{{data2.moisturizing[1].moyenneT0}}, {{data2.moisturizing[1].moyenneT1}}, {{data2.moisturizing[1].moyenneT2}}, {{data2.moisturizing[1].moyenneT3}}],
             bezierCurve: false
         }]
 
@@ -326,11 +326,11 @@ var lineChartData6 = {
 {% endif %}
 {% if data.graph7 == true %}
 var lineChartData7 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(255,0,0,1)",
         borderColor: "rgba(255,0,255,1)",
-        data: [{{data2.antioxydant[0].product0SumT0}}, {{data2.antioxydant[0].product0SumT1}}],
+        data: [{{data2.antioxydant[0].product0SumT0}}, {{data2.antioxydant[0].product0SumT1}}, {{data2.antioxydant[0].product0SumT2}}, {{data2.antioxydant[0].product0SumT3}}],
         bezierCurve: false
     }]
 
@@ -338,11 +338,11 @@ var lineChartData7 = {
 {% endif %}
 {% if data.graph8 == true %}
 var lineChartData8 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(255,0,255,1)",
         borderColor: "rgba(255,0,0,1)",
-        data: [{{data2.antioxydant[1].product1SumT0}}, {{data2.antioxydant[1].product1SumT1}}],
+        data: [{{data2.antioxydant[1].product1SumT0}}, {{data2.antioxydant[1].product1SumT1}}, {{data2.antioxydant[1].product1SumT2}}, {{data2.antioxydant[1].product1SumT3}}],
         bezierCurve: false
     }]
 
@@ -350,11 +350,11 @@ var lineChartData8 = {
 {% endif %}
 {% if data.graph9 == true %}
 var lineChartData9 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(255,255,0,1)",
         borderColor: "rgba(255,0,255,1)",
-        data: [{{data2.antioxydant[0].moyenneT0}}, {{data2.antioxydant[0].moyenneT1}}],
+        data: [{{data2.antioxydant[0].moyenneT0}}, {{data2.antioxydant[0].moyenneT1}}, {{data2.antioxydant[0].moyenneT2}}, {{data2.antioxydant[0].moyenneT3}}],
         bezierCurve: false
     }]
 
@@ -362,11 +362,11 @@ var lineChartData9 = {
 {% endif %}
 {% if data.graph10 == true %}
 var lineChartData10 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(255,0,255,1)",
         borderColor: "rgba(255,255,0,1)",
-        data: [{{data2.antioxydant[1].moyenneT0}}, {{data2.antioxydant[1].moyenneT1}}],
+        data: [{{data2.antioxydant[1].moyenneT0}}, {{data2.antioxydant[1].moyenneT1}}, {{data2.antioxydant[1].moyenneT2}}, {{data2.antioxydant[1].moyenneT3}}],
         bezierCurve: false
     }]
 
@@ -374,18 +374,18 @@ var lineChartData10 = {
 {% endif %}
 {% if data.graph11 == true %}
 var lineChartData11 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
             label: "Product 1 Antioxydant",
             backgroundColor: "rgba(255,0,0,1)",
             borderColor: "rgba(255,0,255,1)",
-            data: [{{data2.antioxydant[0].product0SumT0}}, {{data2.antioxydant[0].product0SumT0}}],
+            data: [{{data2.antioxydant[0].product0SumT0}}, {{data2.antioxydant[0].product0SumT1}}, {{data2.antioxydant[0].product0SumT2}}, {{data2.antioxydant[0].product0SumT3}}],
             bezierCurve: false
         }, {
             label: "Product 2 Antioxydant",
             backgroundColor: "rgba(255,0,255,1)",
             borderColor: "rgba(255,0,0,1)",
-            data: [{{data2.antioxydant[1].product1SumT0}}, {{data2.antioxydant[1].product1SumT0}}],
+            data: [{{data2.antioxydant[1].product1SumT0}}, {{data2.antioxydant[1].product1SumT1}}, {{data2.antioxydant[1].product1SumT2}}, {{data2.antioxydant[1].product1SumT3}}],
             bezierCurve: false
         }]
 
@@ -393,18 +393,18 @@ var lineChartData11 = {
 {% endif %}
 {% if data.graph12 == true %}
 var lineChartData12 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         label: "Product 1 Antioxydant",
         backgroundColor: "rgba(255,255,0,1)",
         borderColor: "rgba(255,0,255,1)",
-            data: [{{data2.antioxydant[0].moyenneT0}}, {{data2.antioxydant[0].moyenneT1}}],
+            data: [{{data2.antioxydant[0].moyenneT0}}, {{data2.antioxydant[0].moyenneT1}}, {{data2.antioxydant[0].moyenneT2}}, {{data2.antioxydant[0].moyenneT3}}],
             bezierCurve: false
         }, {
             label: "Product 2 Antioxydant",
         backgroundColor: "rgba(255,0,255,1)",
         borderColor: "rgba(255,255,0,1)",
-            data: [{{data2.antioxydant[1].moyenneT0}}, {{data2.antioxydant[1].moyenneT1}}],
+            data: [{{data2.antioxydant[1].moyenneT0}}, {{data2.antioxydant[1].moyenneT1}}, {{data2.antioxydant[1].moyenneT2}}, {{data2.antioxydant[1].moyenneT3}}],
             bezierCurve: false
         }]
 
@@ -412,11 +412,11 @@ var lineChartData12 = {
 {% endif %}
 {% if data.graph13 == true %}
 var lineChartData13 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(255,255,0,1)",
         borderColor: "rgba(255,0,255,1)",
-        data: [{{data2.barriere[0].product0SumT0}}, {{data2.barriere[0].product0SumT1}}],
+        data: [{{data2.barriere[0].product0SumT0}}, {{data2.barriere[0].product0SumT1}}, {{data2.barriere[0].product0SumT2}}, {{data2.barriere[0].product0SumT3}}],
         bezierCurve: false
     }]
 
@@ -424,11 +424,11 @@ var lineChartData13 = {
 {% endif %}
 {% if data.graph14 == true %}
 var lineChartData14 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(255,255,0,1)",
         borderColor: "rgba(255,0,255,1)",
-        data: [{{data2.barriere[0].moyenneT0}}, {{data2.barriere[0].moyenneT1}}],
+        data: [{{data2.barriere[0].moyenneT0}}, {{data2.barriere[0].moyenneT1}}, {{data2.barriere[0].moyenneT2}}, {{data2.barriere[0].moyenneT3}}],
         bezierCurve: false
     }]
 
@@ -436,11 +436,11 @@ var lineChartData14 = {
 {% endif %}
 {% if data.graph15 == true %}
 var lineChartData15 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(255,255,0,1)",
         borderColor: "rgba(255,0,255,1)",
-        data: [{{data2.barriere[1].product1SumT0}}, {{data2.barriere[1].product1SumT1}}],
+        data: [{{data2.barriere[1].product1SumT0}}, {{data2.barriere[1].product1SumT1}}, {{data2.barriere[1].product1SumT2}}, {{data2.barriere[1].product1SumT3}}],
         bezierCurve: false
     }]
 
@@ -448,11 +448,11 @@ var lineChartData15 = {
 {% endif %}
 {% if data.graph16 == true %}
 var lineChartData16 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(255,255,0,1)",
         borderColor: "rgba(255,0,255,1)",
-        data: [{{data2.barriere[1].moyenneT0}}, {{data2.barriere[1].moyenneT1}}],
+        data: [{{data2.barriere[1].moyenneT0}}, {{data2.barriere[1].moyenneT1}}, {{data2.barriere[1].moyenneT2}}, {{data2.barriere[1].moyenneT3}}],
         bezierCurve: false
     }]
 
@@ -460,18 +460,18 @@ var lineChartData16 = {
 {% endif %}
 {% if data.graph17 == true %}
 var lineChartData17 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         label: "Product 1 Shield",
         backgroundColor: "rgba(255,255,0,1)",
         borderColor: "rgba(255,0,255,1)",
-            data: [{{data2.barriere[0].product0SumT0}}, {{data2.barriere[0].product0SumT1}}],
+            data: [{{data2.barriere[0].product0SumT0}}, {{data2.barriere[0].product0SumT1}}, {{data2.barriere[0].product0SumT2}}, {{data2.barriere[0].product0SumT3}}],
             bezierCurve: false
         }, {
             label: "Product 2 Shield",
         backgroundColor: "rgba(255,0,255,1)",
         borderColor: "rgba(255,255,0,1)",
-            data: [{{data2.barriere[1].product1SumT0}}, {{data2.barriere[1].product1SumT1}}],
+            data: [{{data2.barriere[1].product1SumT0}}, {{data2.barriere[1].product1SumT1}}, {{data2.barriere[1].product1SumT2}}, {{data2.barriere[1].product1SumT3}}],
             bezierCurve: false
         }]
 
@@ -479,18 +479,18 @@ var lineChartData17 = {
 {% endif %}
 {% if data.graph18 == true %}
 var lineChartData18 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         label: "Product 1 Shield",
         backgroundColor: "rgba(255,255,0,1)",
         borderColor: "rgba(255,0,255,1)",
-            data: [{{data2.barriere[0].moyenneT0}}, {{data2.barriere[0].moyenneT1}}],
+            data: [{{data2.barriere[0].moyenneT0}}, {{data2.barriere[0].moyenneT1}}, {{data2.barriere[0].moyenneT2}}, {{data2.barriere[0].moyenneT3}}],
             bezierCurve: false
         }, {
             label: "Product 2 Shield",
         backgroundColor: "rgba(255,0,255,1)",
         borderColor: "rgba(255,255,0,1)",
-            data: [{{data2.barriere[1].moyenneT0}}, {{data2.barriere[1].moyenneT1}}],
+            data: [{{data2.barriere[1].moyenneT0}}, {{data2.barriere[1].moyenneT1}}, {{data2.barriere[1].moyenneT2}}, {{data2.barriere[1].moyenneT3}}],
             bezierCurve: false
         }]
 
@@ -498,11 +498,11 @@ var lineChartData18 = {
 {% endif %}
 {% if data.graph19 == true %}
 var lineChartData19 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(255,255,0,1)",
         borderColor: "rgba(0,255,0,1)",
-        data: [{{data2.untreatedSkinMoisturizing[0].product0SumT0}}, {{data2.untreatedSkinMoisturizing[0].product0SumT1}}],
+        data: [{{data2.untreatedSkinMoisturizing[0].product0SumT0}}, {{data2.untreatedSkinMoisturizing[0].product0SumT1}}, {{data2.untreatedSkinMoisturizing[0].product0SumT2}}, {{data2.untreatedSkinMoisturizing[0].product0SumT3}}],
         bezierCurve: false
     }]
 
@@ -510,11 +510,11 @@ var lineChartData19 = {
 {% endif %}
 {% if data.graph20 == true %}
 var lineChartData20 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(0,255,0,1)",
         borderColor: "rgba(255,255,0,1)",
-        data: [{{data2.untreatedSkinMoisturizing[0].moyenneT0}}, {{data2.untreatedSkinMoisturizing[0].moyenneT1}}],
+        data: [{{data2.untreatedSkinMoisturizing[0].moyenneT0}}, {{data2.untreatedSkinMoisturizing[0].moyenneT1}}, {{data2.untreatedSkinMoisturizing[0].moyenneT2}}, {{data2.untreatedSkinMoisturizing[0].moyenneT3}}],
         bezierCurve: false
     }]
 
@@ -522,11 +522,11 @@ var lineChartData20 = {
 {% endif %}
 {% if data.graph21 == true %}
 var lineChartData21 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(0,255,255,1)",
         borderColor: "rgba(0,0,255,1)",
-        data: [{{data2.untreatedSkinMoisturizing[1].product1SumT0}}, {{data2.untreatedSkinMoisturizing[1].product1SumT1}}],
+        data: [{{data2.untreatedSkinMoisturizing[1].product1SumT0}}, {{data2.untreatedSkinMoisturizing[1].product1SumT1}}, {{data2.untreatedSkinMoisturizing[1].product1SumT2}}, {{data2.untreatedSkinMoisturizing[1].product1SumT3}}],
         bezierCurve: false
     }]
 
@@ -534,11 +534,11 @@ var lineChartData21 = {
 {% endif %}
 {% if data.graph22 == true %}
 var lineChartData22 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(0,0,255,1)",
         borderColor: "rgba(0,255,255,1)",
-        data: [{{data2.untreatedSkinMoisturizing[1].moyenneT0}}, {{data2.untreatedSkinMoisturizing[1].moyenneT1}}],
+        data: [{{data2.untreatedSkinMoisturizing[1].moyenneT0}}, {{data2.untreatedSkinMoisturizing[1].moyenneT1}}, {{data2.untreatedSkinMoisturizing[1].moyenneT2}}, {{data2.untreatedSkinMoisturizing[1].moyenneT3}}],
         bezierCurve: false
     }]
 
@@ -546,36 +546,36 @@ var lineChartData22 = {
 {% endif %}
 {% if data.graph23 == true %}
 var lineChartData23 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
             label: "Product 1 Untreat",
             backgroundColor: "rgba(255,255,0,1)",
             borderColor: "rgba(0,255,0,1)",
-            data: [{{data2.untreatedSkinMoisturizing[0].product0SumT0}}, {{data2.untreatedSkinMoisturizing[0].product0SumT1}}],
+            data: [{{data2.untreatedSkinMoisturizing[0].product0SumT0}}, {{data2.untreatedSkinMoisturizing[0].product0SumT1}}, {{data2.untreatedSkinMoisturizing[0].product0SumT2}}, {{data2.untreatedSkinMoisturizing[0].product0SumT3}}],
             bezierCurve: false
         }, {
             label: "Product 2 Untreat",
             backgroundColor: "rgba(0,255,0,1)",
             borderColor: "rgba(255,255,0,1)",
-            data: [{{data2.untreatedSkinMoisturizing[1].product1SumT0}}, {{data2.untreatedSkinMoisturizing[1].product1SumT1}}],
+            data: [{{data2.untreatedSkinMoisturizing[1].product1SumT0}}, {{data2.untreatedSkinMoisturizing[1].product1SumT1}}, {{data2.untreatedSkinMoisturizing[1].product1SumT2}}, {{data2.untreatedSkinMoisturizing[1].product1SumT3}}],
             bezierCurve: false
     }]
 }
 {% endif %}
 {% if data.graph24 == true %}
 var lineChartData24 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         label: "Product 1 Untreat",
             backgroundColor: "rgba(0,255,255,1)",
             borderColor: "rgba(0,0,255,1)",
-            data: [{{data2.untreatedSkinMoisturizing[0].moyenneT0}}, {{data2.untreatedSkinMoisturizing[0].moyenneT1}}],
+            data: [{{data2.untreatedSkinMoisturizing[0].moyenneT0}}, {{data2.untreatedSkinMoisturizing[0].moyenneT1}}, {{data2.untreatedSkinMoisturizing[0].moyenneT2}}, {{data2.untreatedSkinMoisturizing[0].moyenneT3}}],
             bezierCurve: false
         }, {
             label: "Product 2 Untreat",
             backgroundColor: "rgba(0,0,255,1)",
             borderColor: "rgba(0,255,255,1)",
-            data: [{{data2.untreatedSkinMoisturizing[1].moyenneT0}}, {{data2.untreatedSkinMoisturizing[1].moyenneT1}}],
+            data: [{{data2.untreatedSkinMoisturizing[1].moyenneT0}}, {{data2.untreatedSkinMoisturizing[1].moyenneT1}}, {{data2.untreatedSkinMoisturizing[1].moyenneT2}}, {{data2.untreatedSkinMoisturizing[1].moyenneT3}}],
             bezierCurve: false
         }]
 
@@ -583,11 +583,11 @@ var lineChartData24 = {
 {% endif %}
 {% if data.graph25 == true %}
 var lineChartData25 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(255,0,0,1)",
         borderColor: "rgba(255,0,255,1)",
-        data: [{{data2.untreatedSkinAntioxydant[0].product0SumT0}}, {{data2.untreatedSkinAntioxydant[0].product0SumT1}}],
+        data: [{{data2.untreatedSkinAntioxydant[0].product0SumT0}}, {{data2.untreatedSkinAntioxydant[0].product0SumT1}}, {{data2.untreatedSkinAntioxydant[0].product0SumT2}}, {{data2.untreatedSkinAntioxydant[0].product0SumT3}}],
         bezierCurve: false
     }]
 
@@ -595,11 +595,11 @@ var lineChartData25 = {
 {% endif %}
 {% if data.graph26 == true %}
 var lineChartData26 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(255,0,255,1)",
         borderColor: "rgba(255,0,0,1)",
-        data: [{{data2.untreatedSkinAntioxydant[1].product1SumT0}}, {{data2.untreatedSkinAntioxydant[1].product1SumT1}}],
+        data: [{{data2.untreatedSkinAntioxydant[1].product1SumT0}}, {{data2.untreatedSkinAntioxydant[1].product1SumT1}}, {{data2.untreatedSkinAntioxydant[1].product1SumT2}}, {{data2.untreatedSkinAntioxydant[1].product1SumT3}}],
         bezierCurve: false
     }]
 
@@ -607,11 +607,11 @@ var lineChartData26 = {
 {% endif %}
 {% if data.graph27 == true %}
 var lineChartData27 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(255,255,0,1)",
         borderColor: "rgba(255,0,255,1)",
-        data: [{{data2.untreatedSkinAntioxydant[0].moyenneT0}}, {{data2.untreatedSkinAntioxydant[0].moyenneT1}}],
+        data: [{{data2.untreatedSkinAntioxydant[0].moyenneT0}}, {{data2.untreatedSkinAntioxydant[0].moyenneT1}}, {{data2.untreatedSkinAntioxydant[0].moyenneT2}}, {{data2.untreatedSkinAntioxydant[0].moyenneT3}}],
         bezierCurve: false
     }]
 
@@ -619,11 +619,11 @@ var lineChartData27 = {
 {% endif %}
 {% if data.graph28 == true %}
 var lineChartData28 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(255,0,255,1)",
         borderColor: "rgba(255,255,0,1)",
-        data: [{{data2.untreatedSkinAntioxydant[1].moyenneT0}}, {{data2.untreatedSkinAntioxydant[1].moyenneT1}}],
+        data: [{{data2.untreatedSkinAntioxydant[1].moyenneT0}}, {{data2.untreatedSkinAntioxydant[1].moyenneT1}}, {{data2.untreatedSkinAntioxydant[1].moyenneT2}}, {{data2.untreatedSkinAntioxydant[1].moyenneT3}}],
         bezierCurve: false
     }]
 
@@ -631,18 +631,18 @@ var lineChartData28 = {
 {% endif %}
 {% if data.graph29 == true %}
 var lineChartData29 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
             label: "Product 1 Antioxydant Untreat",
             backgroundColor: "rgba(255,0,0,1)",
             borderColor: "rgba(255,0,255,1)",
-            data: [{{data2.untreatedSkinAntioxydant[0].product0SumT0}}, {{data2.untreatedSkinAntioxydant[0].product0SumT0}}],
+            data: [{{data2.untreatedSkinAntioxydant[0].product0SumT0}}, {{data2.untreatedSkinAntioxydant[0].product0SumT1}}, {{data2.untreatedSkinAntioxydant[0].product0SumT2}}, {{data2.untreatedSkinAntioxydant[0].product0SumT3}}],
             bezierCurve: false
         }, {
             label: "Product 2 Antioxydant Untreat",
             backgroundColor: "rgba(255,0,255,1)",
             borderColor: "rgba(255,0,0,1)",
-            data: [{{data2.untreatedSkinAntioxydant[1].product1SumT0}}, {{data2.untreatedSkinAntioxydant[1].product1SumT0}}],
+            data: [{{data2.untreatedSkinAntioxydant[1].product1SumT0}}, {{data2.untreatedSkinAntioxydant[1].product1SumT1}}, {{data2.untreatedSkinAntioxydant[1].product1SumT2}}, {{data2.untreatedSkinAntioxydant[1].product1SumT3}}],
             bezierCurve: false
         }]
 
@@ -650,18 +650,18 @@ var lineChartData29 = {
 {% endif %}
 {% if data.graph30 == true %}
 var lineChartData30 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         label: "Product 1 Antioxydant Untreat",
         backgroundColor: "rgba(255,255,0,1)",
         borderColor: "rgba(255,0,255,1)",
-            data: [{{data2.untreatedSkinAntioxydant[0].moyenneT0}}, {{data2.untreatedSkinAntioxydant[0].moyenneT1}}],
+            data: [{{data2.untreatedSkinAntioxydant[0].moyenneT0}}, {{data2.untreatedSkinAntioxydant[0].moyenneT1}}, {{data2.untreatedSkinAntioxydant[0].moyenneT2}}, {{data2.untreatedSkinAntioxydant[0].moyenneT3}}],
             bezierCurve: false
         }, {
             label: "Product 2 Antioxydant Untreat",
         backgroundColor: "rgba(255,0,255,1)",
         borderColor: "rgba(255,255,0,1)",
-            data: [{{data2.untreatedSkinAntioxydant[1].moyenneT0}}, {{data2.untreatedSkinAntioxydant[1].moyenneT1}}],
+            data: [{{data2.untreatedSkinAntioxydant[1].moyenneT0}}, {{data2.untreatedSkinAntioxydant[1].moyenneT1}}, {{data2.untreatedSkinAntioxydant[1].moyenneT2}}, {{data2.untreatedSkinAntioxydant[1].moyenneT3}}],
             bezierCurve: false
         }]
 
@@ -669,11 +669,11 @@ var lineChartData30 = {
 {% endif %}
 {% if data.graph31 == true %}
 var lineChartData31 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(255,255,0,1)",
         borderColor: "rgba(255,0,255,1)",
-        data: [{{data2.untreatedSkinBarriere[0].product0SumT0}}, {{data2.untreatedSkinBarriere[0].product0SumT1}}],
+        data: [{{data2.untreatedSkinBarriere[0].product0SumT0}}, {{data2.untreatedSkinBarriere[0].product0SumT1}}, {{data2.untreatedSkinBarriere[0].product0SumT2}}, {{data2.untreatedSkinBarriere[0].product0SumT3}}],
         bezierCurve: false
     }]
 
@@ -681,11 +681,11 @@ var lineChartData31 = {
 {% endif %}
 {% if data.graph32 == true %}
 var lineChartData32 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(255,255,0,1)",
         borderColor: "rgba(255,0,255,1)",
-        data: [{{data2.untreatedSkinBarriere[0].moyenneT0}}, {{data2.untreatedSkinBarriere[0].moyenneT1}}],
+        data: [{{data2.untreatedSkinBarriere[0].moyenneT0}}, {{data2.untreatedSkinBarriere[0].moyenneT1}}, {{data2.untreatedSkinBarriere[0].moyenneT2}}, {{data2.untreatedSkinBarriere[0].moyenneT3}}],
         bezierCurve: false
     }]
 
@@ -693,11 +693,11 @@ var lineChartData32 = {
 {% endif %}
 {% if data.graph33 == true %}
 var lineChartData33 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(255,255,0,1)",
         borderColor: "rgba(255,0,255,1)",
-        data: [{{data2.untreatedSkinBarriere[1].product1SumT0}}, {{data2.untreatedSkinBarriere[1].product1SumT1}}],
+        data: [{{data2.untreatedSkinBarriere[1].product1SumT0}}, {{data2.untreatedSkinBarriere[1].product1SumT1}}, {{data2.untreatedSkinBarriere[1].product1SumT2}}, {{data2.untreatedSkinBarriere[1].product1SumT3}}],
         bezierCurve: false
     }]
 
@@ -705,11 +705,11 @@ var lineChartData33 = {
 {% endif %}
 {% if data.graph34 == true %}
 var lineChartData34 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         backgroundColor: "rgba(255,255,0,1)",
         borderColor: "rgba(255,0,255,1)",
-        data: [{{data2.untreatedSkinBarriere[1].moyenneT0}}, {{data2.untreatedSkinBarriere[1].moyenneT1}}],
+        data: [{{data2.untreatedSkinBarriere[1].moyenneT0}}, {{data2.untreatedSkinBarriere[1].moyenneT1}}, {{data2.untreatedSkinBarriere[1].moyenneT2}}, {{data2.untreatedSkinBarriere[1].moyenneT3}}],
         bezierCurve: false
     }]
 
@@ -717,18 +717,18 @@ var lineChartData34 = {
 {% endif %}
 {% if data.graph35 == true %}
 var lineChartData35 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         label: "Product 1 Shield Untreat",
         backgroundColor: "rgba(255,255,0,1)",
         borderColor: "rgba(255,0,255,1)",
-            data: [{{data2.untreatedSkinBarriere[0].product0SumT0}}, {{data2.untreatedSkinBarriere[0].product0SumT1}}],
+            data: [{{data2.untreatedSkinBarriere[0].product0SumT0}}, {{data2.untreatedSkinBarriere[0].product0SumT1}}, {{data2.untreatedSkinBarriere[0].product0SumT2}}, {{data2.untreatedSkinBarriere[0].product0SumT3}}],
             bezierCurve: false
         }, {
             label: "Product 2 Shield Untreat",
         backgroundColor: "rgba(255,0,255,1)",
         borderColor: "rgba(255,255,0,1)",
-            data: [{{data2.untreatedSkinBarriere[1].product1SumT0}}, {{data2.untreatedSkinBarriere[1].product1SumT1}}],
+            data: [{{data2.untreatedSkinBarriere[1].product1SumT0}}, {{data2.untreatedSkinBarriere[1].product1SumT1}}, {{data2.untreatedSkinBarriere[1].product1SumT2}}, {{data2.untreatedSkinBarriere[1].product1SumT3}}],
             bezierCurve: false
         }]
 
@@ -736,18 +736,18 @@ var lineChartData35 = {
 {% endif %}
 {% if data.graph36 == true %}
 var lineChartData36 = {
-    labels: ["T0", "T1"],
+    labels: ["T0", "TImme", "T7", "T14"],
     datasets: [{
         label: "Product 1 Shield Untreat",
         backgroundColor: "rgba(255,255,0,1)",
         borderColor: "rgba(255,0,255,1)",
-            data: [{{data2.untreatedSkinBarriere[0].moyenneT0}}, {{data2.untreatedSkinBarriere[0].moyenneT1}}],
+            data: [{{data2.untreatedSkinBarriere[0].moyenneT0}}, {{data2.untreatedSkinBarriere[0].moyenneT1}}, {{data2.untreatedSkinBarriere[0].moyenneT2}}, {{data2.untreatedSkinBarriere[0].moyenneT3}}],
             bezierCurve: false
         }, {
             label: "Product 2 Shield Untreat",
         backgroundColor: "rgba(255,0,255,1)",
         borderColor: "rgba(255,255,0,1)",
-            data: [{{data2.untreatedSkinBarriere[1].moyenneT0}}, {{data2.untreatedSkinBarriere[1].moyenneT1}}],
+            data: [{{data2.untreatedSkinBarriere[1].moyenneT0}}, {{data2.untreatedSkinBarriere[1].moyenneT1}}, {{data2.untreatedSkinBarriere[1].moyenneT2}}, {{data2.untreatedSkinBarriere[1].moyenneT3}}],
             bezierCurve: false
         }]
 
