@@ -50,7 +50,7 @@ dialog::backdrop { background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(3px); -
             </div>
             <div class="px-3 text-center">
                 <button id="btn" class="py-2 px-8 bg-gray-800 hover:bg-gray-900 text-white rounded font-bold text-sm shadow-xl mr-3" @click.prevent="document.getElementById('cookiesModal').showModal()">Cookie settings</button>
-                <button id="btn" class="py-2 px-8 bg-green-400 hover:bg-green-500 text-white rounded font-bold text-sm shadow-xl" @click.prevent="showCookieBanner=!showCookieBanner">Accept cookies</button>
+                <button id="btn" onclick="setCookie()" class="py-2 px-8 bg-green-400 hover:bg-green-500 text-white rounded font-bold text-sm shadow-xl" @click.prevent="showCookieBanner=!showCookieBanner">Accept cookies</button>
             </div>
         </div>
     </section>
@@ -99,16 +99,17 @@ dialog::backdrop { background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(3px); -
                 </div>
             </div>
             <div class="flex w-full px-5 py-3 justify-end">
-                <button @click.prevent="document.getElementById('cookiesModal').close();" onclick="cookie()" class="py-2 px-8 bg-gray-800 hover:bg-gray-900 text-white rounded font-bold text-sm shadow-xl">Save settings</button>
+                <button @click.prevent="document.getElementById('cookiesModal').close();" class="py-2 px-8 bg-gray-800 hover:bg-gray-900 text-white rounded font-bold text-sm shadow-xl">Save settings</button>
             </div>
         </div>
     </dialog>
 </div>
 <script>
-function cookie(){
+function setCookie(){
     document.cookie = "username=John Doe";
 }
-if(document.cookie == "adminer_version=4.8.1; username=John Doe"){
+    console.log(document.cookie);
+if(document.cookie.includes("username=John Doe")){
     document.getElementById('cookie').style.display = 'none';
 }
 </script>
