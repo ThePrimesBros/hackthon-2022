@@ -653,6 +653,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: max-content;
 }
 
+.h-\[336px\] {
+  height: 336px;
+}
+
+.h-\[436px\] {
+  height: 436px;
+}
+
 .max-h-80 {
   max-height: 20rem;
 }
@@ -689,6 +697,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-\[80\%\] {
   width: 80%;
+}
+
+.w-\[1364\] {
+  width: 1364;
+}
+
+.w-\[1364px\] {
+  width: 1364px;
 }
 
 .shrink-0 {
@@ -831,6 +847,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .rounded-\[49px\] {
   border-radius: 49px;
+}
+
+.rounded-3xl {
+  border-radius: 1.5rem;
 }
 
 .border-\[1px\] {

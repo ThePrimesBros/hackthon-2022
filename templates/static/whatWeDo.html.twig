@@ -4,8 +4,6 @@
 
 {% block body %}
 
-{# bg-gradient-to-b from-[#121833] to-[#394160] #}
-
 <div class="vw-100 flex flex-col">
 
     
@@ -13,7 +11,7 @@
 
         <img src="{{asset("images/Groupe126.png")}}" alt="scientific researches on microscope" class="absolute z-[-900] h-min-[336px] shrink-0">
         
-        {% include "components/navbar.html.twig" %}
+        {% include "components/navbar.html.twig" with {'display': ""} %}
 
         <h1 class="text-[4.5rem] text-white text-center z-[1000] font-bold absolute left-[50%] translate-x-[-50%]">What we do</h1>
 

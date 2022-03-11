@@ -3,12 +3,68 @@
 {% block title %}Laboratory{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Laboratory</h1>
-</div>
+    <div class="vw-100 bg-gradient-to-b from-[#121833] to-[#394160] flex flex-col">
+    
+        {% include 'components/navbar.html.twig' with {'display': "absolute"} %}
+
+        <header class="relative flex flex-col">
+            <img src="{{asset("images/team.jpeg")}}" alt="scientific researches on microscope" class="h-max-[336px] shrink-0">
+            <h1 class=" absolute text-[4.5rem] text-white text-center font-bold left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">New nomadic lab grade device</h1>
+
+        </header>
+
+        <section class="flex flex-col  px-28">
+
+            <h2 class="text-WBgey text-[40px] my-12">BeautyTech X Skincare</h2>
+            <p class="text-[18px] mb-2">The new datadriven market research company dedicated to cosmetic laboratories.</p>
+
+            <div class="flex justify-evenly">
+
+                    <div class="flex flex-col">
+                        <h3 class="text-WBgreen text-[30px] mb-4 font-bold">WB IS NEW</h3>
+                        <p class="text-[18px] mb-2">Hybrid studies combining objective clinical results measurements & consumer perception.</p>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <h3 class="text-WBgreen text-[30px] mb-4 font-bold">WB IS DIFFERENT</h3>
+                        <p class="text-[18px] mb-2">Proprietary IOT and Algorythm allowing decifering within minutes combined with a consumer app harvesting consumer opinions.</p>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <h3 class="text-WBgreen text-[30px] mb-4 font-bold">WB IS BETTER</h3>
+                        <p class="text-[18px] mb-2">Real World Evidence (link with pollution, UV and lifestyle) of skincare efficiency on large statistical basis (ex 1000 testers).</p>
+                    </div>
+
+            </div>
+            
+            
+                <img src="{{asset("images/girl.jpeg")}}" alt="scientific researches on microscope" class="shrink-0 rounded-3xl self-center">
+           
+
+        </section>
+
+        <section class="flex flex-col  px-28">
+
+            <h3 class="text-WBgreen text-[30px] mb-4 font-bold">SMART DATA X SKINCARE</h3>
+            <p class="text-[18px] mb-2">Our measurements range from :</p>
+            <p class="text-[18px] mb-2">
+            - Targeted markers such as Ascorbic acid, Alpha Tocopherol and squalen/sebum to<br>
+            - Non targeted measurements of the barrier function or the antioxydative capacity of the skin.</p>
+
+            <p class="text-[18px] mb-2">Our scientific partners ( APHP and CRO : lien en page scientific ) have established that our measurement of TEWL is statistically correlated to that of chromatography which is the reference methodology as opposed to corneometry. Our technology is complementary to imagery.</p>
+
+        </section>
+
+        <section class="flex flex-col  px-28">
+
+            <h3 class="text-WBgreen text-[30px] mb-4 font-bold">OUR INSANELY FAST ALGORITHM</h3>
+            <p class="text-[18px] mb-2">Thanks to its IOT, its mobile consumer app and its standardized single-use patches, Wired Beauty can decifer within seconds skin antioxydative and mosterizing reactions. Artificial intelligence improves repeatability of process.</p>
+
+        </section>
+
+        {% include "components/footer.html.twig" %}
+
+    </div>
+
 {% endblock %}
