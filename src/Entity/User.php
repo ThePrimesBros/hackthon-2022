@@ -66,7 +66,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $articles;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="users")
+     * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="users", cascade={"persist", "remove" })
      * @ORM\JoinColumn(nullable=false)
      */
     private $entreprise;

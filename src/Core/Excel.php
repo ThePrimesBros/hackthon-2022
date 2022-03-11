@@ -391,7 +391,7 @@ class Excel {
 
                     'product'.$key.'SumT2' => $sumBarriereUntreatedSkinT2Product,
                     'countT2' =>$countT2,
-                    'moyenneT'=>$sumBarriereUntreatedSkinT2Product/$countT2,
+                    'moyenneT2'=>$sumBarriereUntreatedSkinT2Product/$countT2,
 
                     'product'.$key.'SumT3' => $sumBarriereUntreatedSkinT3Product,
                     'countT3' =>$countT3,

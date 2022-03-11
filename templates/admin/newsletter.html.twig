@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<div>
+    {{ form_start(newsletterForm) }}
+        {{ form_row(newsletterForm.Sujet)}}
+        {{ form_row(newsletterForm.Contenu)}}
+
+        <table id="myTable" class="display">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="select-all">Envoyé à tout le monde</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% set i = 1 %}
+                {% for user in users %}
+                    <tr>
+                        <td><input type="checkbox" name="prospect{{i}}" value="{{user.email}}"></td>
+                        <td>{{user.email}}</td>
+                    </tr>
+                    {% set i = i + 1 %}
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit" class="btn">Envoyé</button>
+    {{ form_end(newsletterForm) }}
+</div>
+<script>
+$('#select-all').click(function(event) {   
+    if(this.checked) {
+        // Iterate each checkbox
+        $(':checkbox').each(function() {
+            this.checked = true;                        
+        });
+    } else {
+        $(':checkbox').each(function() {
+            this.checked = false;                       
+        });
+    }
+}); 
+
+</script>
+{% endblock %}

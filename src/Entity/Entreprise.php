@@ -40,7 +40,7 @@ class Entreprise
     private $cp;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $logo;
 
