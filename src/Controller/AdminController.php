@@ -30,6 +30,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminController extends AbstractController
 {
+
+
     #[Route('/admin/relance', name: 'relance_admin')]
     public function relance(DemandeRepository $demandeRepository): Response
     {
