@@ -4,6 +4,8 @@ module.exports = {
     extend: {
       colors: {
         WBgreen: "#91EB9D",
+        WBgey: "#9EAACC",
+        WBdarkGrey: "#3C4365",
       },
     },
   },
