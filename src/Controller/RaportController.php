@@ -4,13 +4,19 @@ namespace App\Controller;
 
 use App\Core\Excel;
 use App\Core\Stripe;
+use App\Entity\Demande;
 use App\Entity\Raport;
+use App\Form\DevisType;
 use App\Form\RaportType;
+use App\Form\RapportType;
+use App\Repository\EntrepriseRepository;
 use App\Repository\RaportRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use DateTimeImmutable;
 
 #[Route('/raport')]
 class RaportController extends AbstractController
@@ -76,33 +82,67 @@ class RaportController extends AbstractController
         return $this->redirectToRoute('app_raport_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    #[Route('/{id}/import', name: 'app_raport_importData', methods: ['GET'])]
-    public function importData(Request $request): Response
+    #[Route('/pdf/generate', name: 'app_raport_generate', methods: ['GET','POST'])]
+    public function generatePDF(Request $request,RaportRepository $raportRepository, EntrepriseRepository $entrepriseRepository, EntityManagerInterface $entityManager)
     {
-        $antioxydant = 1;
-        $moisturizing= 1;
-        $barriere=1;
-        $untreatedSkinAntioxydant = 1;
-        $untreatedSkinMoisturizing = 1 ;
-        $untreatedSkinBarriere = 1 ;
+        $count = 0;
+        $user = $this->getUser();
+        $form = $this->createForm(RaportType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid() ) {
+            $data = $form->getData();
+            $rapport = new Raport();
+            $rapport->setUser($user);
+
+            $antioxydant = 1;
+            $moisturizing= 1;
+            $barriere=1;
+            $untreatedSkinAntioxydant = 1;
+            $untreatedSkinMoisturizing = 1 ;
+            $untreatedSkinBarriere = 1 ;
+
+            $rapport->setPrice(($count-3)*5000);
+
+            $excel = new Excel();
+            $data2 = $excel->import($antioxydant,$moisturizing, $barriere,$untreatedSkinAntioxydant,$untreatedSkinMoisturizing,$untreatedSkinBarriere);
 
 
-        $excel = new Excel();
-        $data = $excel->import($antioxydant,$moisturizing, $barriere,$untreatedSkinAntioxydant,$untreatedSkinMoisturizing,$untreatedSkinBarriere);
-        dd($data);
+            $entityManager->persist($rapport);
+            $entityManager->flush();
 
-        return $data;
+            $entreprise = $entrepriseRepository->findOneBy(["name" => $data['entreprise']]);
+            return $this->render('default/mypdf.html.twig', [
+                'data' => $data,
+                'entreprise' => $entreprise,
+                'data2' => $data2
+            ]);
+        }
+        return $this->render('admin/generate.html.twig', [
+            'rapportForm' => $form->createView(),
+        ]);
     }
 
-    #[Route('/{id}/paiement', name: 'app_raport_paiement', methods: ['GET','POST'])]
-    public function paiementRaport(Request $request,Raport $raport, RaportRepository $raportRepository): Response
-
+    #[Route('/create/devis', name: 'app_raport_devis')]
+    public function devis(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $stripe = new Stripe();
-        $stripe->create($raport);
+        $demande = new Demande();
+        $form = $this->createForm(DevisType::class, $demande);
+        $form->handleRequest($request);
+        $now = new DateTimeImmutable();
+        if ($form->isSubmitted() && $form->isValid()) {
+            // encode the plain password
+            $demande->setSendAt($now);
+            $demande->setTraiter(false);
+            $demande->setType("devis");
+            $entityManager->persist($demande);
+            $entityManager->flush();
 
-        return $this->render('raport/index.html.twig', [
-            'raports' => $raportRepository->findAll(),
+            return $this->redirectToRoute('app_raport_devis');
+        }
+
+        return $this->render('raport/devis.html.twig', [
+            'devisForm' => $form->createView(),
         ]);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\DemandeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Type;
 
 /**
  * @ORM\Entity(repositoryClass=DemandeRepository::class)
@@ -21,6 +22,16 @@ class Demande
      * @ORM\Column(type="string", length=255)
      */
     private $contact_email;
+
+    /**
+     * @ORM\Column(type="string",length=255)
+     */
+    private $type;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $sujet;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -65,6 +76,39 @@ class Demande
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type): void
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSujet()
+    {
+        return $this->sujet;
+    }
+
+    /**
+     * @param mixed $sujet
+     */
+    public function setSujet($sujet): void
+    {
+        $this->sujet = $sujet;
+    }
+
 
     public function getSendAt(): ?\DateTimeImmutable
     {
