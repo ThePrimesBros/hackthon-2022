@@ -23,18 +23,24 @@
         </div>
     {% endif %}#}
 {% block body %}{% endblock %}
-<div id="bot-container">
+<div id="bot-container" class="bg-white none m-5">
   <div id="bot-inner">
     <div id="bot"></div>
   </div>
 </div>
-{#<style>
+<style>
 :root {
     --bot-height: 60vh;
     --bot-avatar: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' viewBox='0 0 100 125' enable-background='new 0 0 100 100' xml:space='preserve'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M38.331,47.025c0.777,0,1.408-0.631,1.408-1.408c0-0.777-0.631-1.408-1.408-1.408 c-0.777,0-1.408,0.631-1.408,1.408C36.923,46.394,37.554,47.025,38.331,47.025z M38.331,50.78c-2.852,0-5.162-2.311-5.162-5.162 c0-2.852,2.311-5.162,5.162-5.162s5.162,2.311,5.162,5.162C43.493,48.469,41.182,50.78,38.331,50.78z'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M62.735,50.78c-2.852,0-5.162-2.311-5.162-5.162c0-2.852,2.311-5.162,5.162-5.162 c2.852,0,5.162,2.311,5.162,5.162C67.897,48.469,65.586,50.78,62.735,50.78z M62.735,47.025c0.777,0,1.408-0.631,1.408-1.408 c0-0.777-0.631-1.408-1.408-1.408c-0.777,0-1.408,0.631-1.408,1.408C61.327,46.394,61.958,47.025,62.735,47.025z'/%3E%3Cpath d='M51.941,26.095v-4.77c1.922-0.751,3.285-2.617,3.285-4.805c0-2.851-2.311-5.162-5.162-5.162 c-2.852,0-5.162,2.311-5.162,5.162c0,2.188,1.363,4.054,3.285,4.805v4.77c-17.788,0.79-31.913,12.726-31.913,27.338 c0,0.389,0.016,0.776,0.036,1.161l-0.036-0.031v34.079l10.544-14.415c6.058,4.657,14.237,6.588,23.247,6.588 c18.662,0,33.79-12.259,33.79-27.382C83.854,38.821,69.729,26.885,51.941,26.095z M50.063,15.112c0.777,0,1.408,0.631,1.408,1.408 c0,0.777-0.631,1.408-1.408,1.408c-0.777,0-1.408-0.631-1.408-1.408C48.656,15.743,49.286,15.112,50.063,15.112z M50.063,77.061 c-9.703,0-18.339-2.71-23.834-8.343l-6.202,7.696v-22.43l0.019,0.021c-0.006-0.191-0.019-0.381-0.019-0.573 c0-13.028,13.474-23.628,30.036-23.628c16.562,0,30.036,10.599,30.036,23.628S66.625,77.061,50.063,77.061z'/%3E%3Cpath d='M50.7,67.492c-6.836,0-14.916-3.037-15.257-3.166c-0.969-0.368-1.457-1.452-1.089-2.421c0.367-0.969,1.451-1.458,2.42-1.09 c0.077,0.029,7.786,2.922,13.925,2.922c6.418,0,12.451-2.834,12.511-2.862c0.938-0.444,2.057-0.047,2.501,0.89 c0.445,0.936,0.047,2.056-0.889,2.501C64.546,64.397,57.956,67.492,50.7,67.492z'/%3E%3Cpath fill='%23000000' d='M88.08,60.693L88.08,60.693c-1.032,0-1.877-0.845-1.877-1.877v-12.3c0-1.032,0.845-1.877,1.877-1.877l0,0 c1.032,0,1.877,0.845,1.877,1.877v12.3C89.958,59.848,89.113,60.693,88.08,60.693z'/%3E%3Cpath fill='%23000000' d='M12.047,60.693L12.047,60.693c-1.032,0-1.877-0.845-1.877-1.877v-12.3c0-1.032,0.845-1.877,1.877-1.877h0 c1.032,0,1.877,0.845,1.877,1.877v12.3C13.924,59.848,13.079,60.693,12.047,60.693z'/%3E%3Cpath fill='%23000000' d='M92.623,55.252L92.623,55.252c-1.032,0-1.877-0.845-1.877-1.877v-1.418c0-1.032,0.845-1.877,1.877-1.877l0,0 c1.032,0,1.877,0.845,1.877,1.877v1.418C94.5,54.407,93.655,55.252,92.623,55.252z'/%3E%3Cpath fill='%23000000' d='M7.377,55.252L7.377,55.252c-1.032,0-1.877-0.845-1.877-1.877v-1.418c0-1.032,0.845-1.877,1.877-1.877h0 c1.032,0,1.877,0.845,1.877,1.877v1.418C9.254,54.407,8.41,55.252,7.377,55.252z'/%3E%3C/svg%3E");
 }
 body {
   font-family: sans-serif;
+}
+.none{
+    display: none;
+}
+.display{
+    display: block;
 }
 #bot-container {
   width: 80vw;
@@ -143,7 +149,7 @@ body {
   cursor: pointer;
 }
 
-</style>#}
+</style>
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 <style>
 @import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);
@@ -167,7 +173,15 @@ body {
 dialog[open] { -webkit-animation-duration:0.3s; animation-duration:0.3s; -webkit-animation-fill-mode:both; animation-fill-mode:both; -webkit-animation-name:fadeInUp; animation-name:fadeInUp }
 dialog::backdrop { background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(3px); -webkit-animation-duration:0.3s; animation-duration:0.3s; -webkit-animation-fill-mode:both; animation-fill-mode:both; -webkit-animation-name:fadeIn; animation-name:fadeIn  }
 </style>
-
+    <div class="relative inline-block m-5">
+    <!-- Dropdown toggle button -->
+        <button onclick="showBot()" class="relative z-10 block p-2 text-gray-700 bg-white border border-transparent rounded-md dark:text-white focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:bg-gray-800 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
+            </svg>
+        </button>
+    </div>
+            
 <div class="w-screen h-screen bg-gray-100 flex items-center justify-center px-5 py-5 relative" x-data="{showCookieBanner:true}" id="cookie">
     <section class="w-full p-5 lg:px-24 absolute top-0 bg-gray-600" x-show="showCookieBanner">
         <div class="md:flex items-center -mx-3">
@@ -255,7 +269,18 @@ if(document.cookie.includes("username=John Doe")){
     document.getElementById('cookie').style.display = 'none';
 }
 </script>
-{#<script>
+<script>
+function showBot(){
+    let bot = document.getElementById('bot-container');
+    if(bot.classList.contains('none')){
+        bot.classList.remove("none");
+        bot.classList.add("display");
+    }else{
+        bot.classList.remove("display");
+        bot.classList.add("none");    }
+}
+</script>
+<script>
 const chat = {
     1: {
         text: 'Hi! Welcome to Wired Beauty.',
@@ -432,7 +457,7 @@ const bot = function () {
 }
 
 bot();
-</script>#}
+</script>
 </body>
 
 {# Editor.js #}
