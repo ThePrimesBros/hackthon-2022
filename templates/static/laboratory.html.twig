@@ -39,7 +39,7 @@
             </div>
             
             
-                <img src="{{asset("images/girl.jpeg")}}" alt="scientific researches on microscope" class="shrink-0 rounded-3xl self-center">
+                <img src="{{asset("images/girl.jpeg")}}" alt="scientific researches on microscope" class="shrink-0 rounded-3xl h-[436px] w-[100%] object-cover">
            
 
         </section>
@@ -62,6 +62,17 @@
             <p class="text-[18px] mb-2">Thanks to its IOT, its mobile consumer app and its standardized single-use patches, Wired Beauty can decifer within seconds skin antioxydative and mosterizing reactions. Artificial intelligence improves repeatability of process.</p>
 
         </section>
+
+        <section class="flex flex-col px-28 items-center">
+
+            <video controls width="1150">
+            <source src="{{asset("videos/motion.mp4")}}" type="video/mp4">
+                Sorry, your browser doesn't support embedded videos.
+            </video>
+
+        </section>
+
+        
 
         {% include "components/footer.html.twig" %}
 
