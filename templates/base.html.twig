@@ -23,7 +23,7 @@
         </div>
     {% endif %}#}
 {% block body %}{% endblock %}
-<div id="bot-container" class="bg-white none m-5">
+<div id="bot-container" class="bg-white none m-5 fixed bottom-0 left-0 right-0 z-50">
   <div id="bot-inner">
     <div id="bot"></div>
   </div>
@@ -50,14 +50,12 @@ body {
     box-shadow: 2px 2px 5px hsl(0, 0%, 60%);
     padding: 1rem 1rem 2rem 1rem;
     height: var(--bot-height);
-    position: relative;
 }
 #bot-inner {
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    position: relative;
     /* Hiding scrollbars is a pain. This is from: https://redstapler.co/css-hidden-scrollbar-while-scrollable-element/ */
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -125,6 +123,7 @@ body {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+  color: black;
 }
 .choice:disabled {
   color: hsl(0, 0%, 80%);
@@ -173,7 +172,7 @@ body {
 dialog[open] { -webkit-animation-duration:0.3s; animation-duration:0.3s; -webkit-animation-fill-mode:both; animation-fill-mode:both; -webkit-animation-name:fadeInUp; animation-name:fadeInUp }
 dialog::backdrop { background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(3px); -webkit-animation-duration:0.3s; animation-duration:0.3s; -webkit-animation-fill-mode:both; animation-fill-mode:both; -webkit-animation-name:fadeIn; animation-name:fadeIn  }
 </style>
-    <div class="relative inline-block m-5">
+    <div class="fixed bottom-0 left-0 right-0 z-50 m-5">
     <!-- Dropdown toggle button -->
         <button onclick="showBot()" class="relative z-10 block p-2 text-gray-700 bg-white border border-transparent rounded-md dark:text-white focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:bg-gray-800 focus:outline-none">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">

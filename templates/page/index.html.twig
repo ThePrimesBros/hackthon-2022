@@ -3,11 +3,11 @@
 {% block title %}Page index{% endblock %}
 
 {% block body %}
-<div>
-<nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
+<div class="mb-5">
+<nav class="bg-WBgey border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 text-white">
   <div class="container flex flex-wrap justify-between items-center mx-auto">
   <a href="#" class="flex items-center">
-      <!--<img src="/img/logo.png" class="mr-3 h-6 sm:h-10" alt="Flowbite Logo" />-->
+      <img src="{{ asset("images/logo.svg") }}" class="mr-3 h-6 sm:h-10 " alt="Flowbite Logo" />
       <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Admin - WiredBeauty</span>
   </a>
   <div class="flex items-center md:order-2">
@@ -90,43 +90,67 @@
   </div>
 </nav>
 </div>
-    <h1>Page index</h1>
+       <section class="p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 w-4/5 my-12 py-5 text-black">
+        <h2 class="text-lg text-center font-semibold text-gray-700 capitalize dark:text-dark">List of page</h2>
+  <table class="mx-auto table-auto text-center mb-5">
+    <thead>
+      <tr class="bg-gradient-to-r from-indigo-600 to-purple-600">
+        <th class="px-16 py-2">
+          <span class="text-gray-100 font-semibold">Id</span>
+        </th>
+        <th class="px-16 py-2">
+          <span class="text-gray-100 font-semibold">Title</span>
+        </th>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Text</th>
-                <th>Seo_title</th>
-                <th>Seo_description</th>
-                <th>Html</th>
-                <th>Url</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+        <th class="px-16 py-2">
+          <span class="text-gray-100 font-semibold">Text</span>
+        </th>
+        <th class="px-16 py-2">
+          <span class="text-gray-100 font-semibold">Seo_title</span>
+        </th>
+
+        <th class="px-16 py-2">
+          <span class="text-gray-100 font-semibold">Seo_description</span>
+        </th>
+        <th class="px-16 py-2">
+          <span class="text-gray-100 font-semibold">Html</span>
+        </th>
+                <th class="px-16 py-2">
+          <span class="text-gray-100 font-semibold">Url</span>
+        </th>
+                <th class="px-16 py-2">
+          <span class="text-gray-100 font-semibold">Actions</span>
+        </th>
+                        <th class="px-16 py-2">
+          <span class="text-gray-100 font-semibold">Option</span>
+        </th>
+      </tr>
+    </thead>
+           <tbody class="bg-gray-200">
         {% for page in pages %}
-            <tr>
-                <td>{{ page.id }}</td>
-                <td>{{ page.title }}</td>
-                <td>{{ page.text }}</td>
-                <td>{{ page.seoTitle }}</td>
-                <td>{{ page.seoDescription }}</td>
-                <td>{{ page.html }}</td>
-                <td>{{ page.url }}</td>
-                <td>
-                    <a href="{{ path('app_page_show', {'id': page.id}) }}">show</a>
+            <tr class="bg-white border-b-2 border-gray-200">
+                <td><span class="text-center ml-2 font-semibold">{{ page.id }}</span></td>
+                <td class="px-16 py-2">{{ page.title }}</td>
+                <td class="px-16 py-2">{{ page.text }}</td>
+                <td class="px-16 py-2">{{ page.seoTitle }}</td>
+                <td class="px-16 py-2">{{ page.seoDescription }}</td>
+                                <td class="px-16 py-2">{{ page.html }}</td>
+                                                <td class="px-16 py-2">{{ page.url }}</td>
+                <td class="px-16 py-2">
+                                        <a href="{{ path('app_page_show', {'id': page.id}) }}">show</a>
                     <a href="{{ path('app_page_edit', {'id': page.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
+            <tr class="bg-white border-b-2 border-gray-200">
+                <td colspan="8"  class="px-16 py-2">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
-    </table>
+  </table>
+      <a href="{{ path('app_page_new') }}" class="my-5 px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Create new</a>
+    </section>
+  
 
-    <a href="{{ path('app_page_new') }}">Create new</a>
+
 {% endblock %}

@@ -3,11 +3,11 @@
 {% block title %}Generate{% endblock %}
 
 {% block body %}
-<div>
-<nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
+<div class="mb-5">
+<nav class="bg-WBgey border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 text-white">
   <div class="container flex flex-wrap justify-between items-center mx-auto">
   <a href="#" class="flex items-center">
-      <!--<img src="/img/logo.png" class="mr-3 h-6 sm:h-10" alt="Flowbite Logo" />-->
+      <img src="{{ asset("images/logo.svg") }}" class="mr-3 h-6 sm:h-10 " alt="Flowbite Logo" />
       <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Admin - WiredBeauty</span>
   </a>
   <div class="flex items-center md:order-2">
@@ -21,15 +21,33 @@
           <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">/</span>
         </div>
         <ul class="py-1" aria-labelledby="dropdown">
-        <li>
-          <a href="/admin/relance" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Relance</a>
-        </li>
-        <li>
-          <a href="/admin/newsletter" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Newsletter</a>
-        </li>
-        <li>
-          <a href="/admin/generate" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Generate</a>
-        </li>
+            <li>
+            <a href="/admin/relance" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Relance</a>
+            </li>
+            <li>
+            <a href="/admin/newsletter" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Newsletter</a>
+            </li>
+            <li>
+            <a href="/admin/generate" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Generate</a>
+            </li>
+            <li>
+            <a href="/raport" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Raport</a>
+            </li>
+            <li>
+            <a href="/page" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Page</a>
+            </li>
+            <li>
+            <a href="/entreprise" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Entreprise</a>
+            </li>
+            <li>
+            <a href="/protocol" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Protocol</a>
+            </li>
+            <li>
+            <a href="/media" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Media</a>
+            </li>
+            <li>
+            <a href="/article" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Blog</a>
+            </li>
         </ul>
       </div>
       <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
@@ -76,51 +94,66 @@
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>Generate PDF Rapport</h1>
-
-    {{ form_start(rapportForm) }}
-        {{ form_row(rapportForm.title) }}
-        {{ form_row(rapportForm.entreprise) }}
-        <input type="checkbox" id="select-all">Tout Sélectionné
-        {{ form_row(rapportForm.graph1)}}
-        {{ form_row(rapportForm.graph2)}}
-        {{ form_row(rapportForm.graph3)}}
-        {{ form_row(rapportForm.graph4)}}
-        {{ form_row(rapportForm.graph5)}}
-        {{ form_row(rapportForm.graph6)}}
-        {{ form_row(rapportForm.graph7)}}
-        {{ form_row(rapportForm.graph8)}}
-        {{ form_row(rapportForm.graph9)}}
-        {{ form_row(rapportForm.graph10)}}
-        {{ form_row(rapportForm.graph11)}}
-        {{ form_row(rapportForm.graph12)}}
-        {{ form_row(rapportForm.graph13)}}
-        {{ form_row(rapportForm.graph14)}}
-        {{ form_row(rapportForm.graph15)}}
-        {{ form_row(rapportForm.graph16)}}
-        {{ form_row(rapportForm.graph17)}}
-        {{ form_row(rapportForm.graph18)}}
-        {{ form_row(rapportForm.graph19)}}
-        {{ form_row(rapportForm.graph20)}}
-        {{ form_row(rapportForm.graph21)}}
-        {{ form_row(rapportForm.graph22)}}
-        {{ form_row(rapportForm.graph23)}}
-        {{ form_row(rapportForm.graph24)}}
-        {{ form_row(rapportForm.graph25)}}
-        {{ form_row(rapportForm.graph26)}}
-        {{ form_row(rapportForm.graph27)}}
-        {{ form_row(rapportForm.graph28)}}
-        {{ form_row(rapportForm.graph29)}}
-        {{ form_row(rapportForm.graph30)}}
-        {{ form_row(rapportForm.graph31)}}
-        {{ form_row(rapportForm.graph32)}}
-        {{ form_row(rapportForm.graph33)}}
-        {{ form_row(rapportForm.graph34)}}
-        {{ form_row(rapportForm.graph35)}}
-        {{ form_row(rapportForm.graph36)}}
-        {{ form_row(rapportForm.commentary)}}
-        <button type="submit" class="btn">Généré</button>
+<section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 w-2/3 my-12 py-5 text-black mb-5">
+        <h2 class="text-lg text-center font-semibold text-gray-700 capitalize dark:text-dark">Generate PDF Rapport</h2>
+    {{ form_start(rapportForm, {'attr': {'class': ''}}) }}
+        {{ form_row(rapportForm.title, { 'attr': {'class':'my-5 block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring'}}) }}
+        {{ form_row(rapportForm.entreprise, { 'attr': {'class':'my-5 block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring'}}) }}
+        <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" id="select-all">Tout Sélectionné
+        <div class="flex justify-center my-5">
+        {{ form_row(rapportForm.graph1, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph2, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph3, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph4, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph5, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph6, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        </div>
+        <div class="flex justify-center my-5">
+        {{ form_row(rapportForm.graph7, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph8, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph9, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph10, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph11, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph12, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        </div>
+        <div class="flex justify-center my-5">
+        {{ form_row(rapportForm.graph13, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph14, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph15, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph16, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph17, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph18, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        </div>
+        <div class="flex justify-center my-5">
+        {{ form_row(rapportForm.graph19, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph20, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph21, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph22, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph23, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph24, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        </div>
+        <div class="flex justify-center my-5">
+        {{ form_row(rapportForm.graph25, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph26, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph27, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph28, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph29, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph30, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        </div>
+        <div class="flex justify-center my-5">
+        {{ form_row(rapportForm.graph31, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph32, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph33, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph34, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph35, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        {{ form_row(rapportForm.graph36, {'attr': {'class': 'form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer'}})}}
+        </div>
+        {{ form_row(rapportForm.commentary, { 'attr': {'class':'block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring'}})}}
+                    <div class="flex mt-6">
+                <button type="input" class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Generate</button>
+            </div>
     {{ form_end(rapportForm) }}
+    </section>
     <script>
         $('#select-all').click(function(event) {   
             if(this.checked) {

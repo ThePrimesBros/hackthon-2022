@@ -1,11 +1,11 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-<div>
-<nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
+<div class="mb-5">
+<nav class="bg-WBgey border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 text-white">
   <div class="container flex flex-wrap justify-between items-center mx-auto">
   <a href="#" class="flex items-center">
-      <!--<img src="/img/logo.png" class="mr-3 h-6 sm:h-10" alt="Flowbite Logo" />-->
+      <img src="{{ asset("images/logo.svg") }}" class="mr-3 h-6 sm:h-10 " alt="Flowbite Logo" />
       <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Admin - WiredBeauty</span>
   </a>
   <div class="flex items-center md:order-2">
@@ -89,31 +89,46 @@
 </nav>
 </div>
 <div>
-    {{ form_start(newsletterForm) }}
-        {{ form_row(newsletterForm.Sujet)}}
-        {{ form_row(newsletterForm.Contenu)}}
+   <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 w-2/3 my-12 py-5 text-black">
+        <h2 class="text-lg text-center font-semibold text-gray-700 capitalize dark:text-dark">Newsletter</h2>
+        {{ form_start(newsletterForm,{'attr': {'class': 'w-full mx-auto'}}) }}
 
-        <table id="myTable" class="display">
-            <thead>
-                <tr>
-                    <th><input type="checkbox" id="select-all">Envoyé à tout le monde</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
+            <div class="mx-auto">
+                <div class="mx-auto">
+                    {{ form_row(newsletterForm.Sujet, { 'attr': {'class':'block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring'}}) }}                </div>
+                <div class="mx-auto">
+                    {{ form_row(newsletterForm.Contenu, { 'attr': {'class':'block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring'}}) }}                </div>
+                </div>
+
+    <table class="mx-auto table-auto mt-5 w-full">
+    <thead>
+      <tr class="bg-gradient-to-r from-indigo-600 to-purple-600">
+        <th class="px-16 py-2">
+          <span class="text-gray-100 font-semibold"><input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" id="select-all">Envoyé à tout le monde</span>
+        </th>
+        <th class="px-16 py-2">
+          <span class="text-gray-100 font-semibold">Email</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody class="bg-gray-200">
             {% set i = 1 %}
                 {% for user in users %}
-                    <tr>
-                        <td><input type="checkbox" name="prospect{{i}}" value="{{user.email}}"></td>
-                        <td>{{user.email}}</td>
+                    <tr class="bg-white text-dark border-b-2 border-gray-200">
+                        <td class="px-16 py-2"><input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" name="prospect{{i}}" value="{{user.email}}"></td>
+                        <td class="px-16 py-2">{{user.email}}</td>
                     </tr>
                     {% set i = i + 1 %}
                 {% endfor %}
             </tbody>
-        </table>
-        <button type="submit" class="btn">Envoyé</button>
-    {{ form_end(newsletterForm) }}
+          </table>
+            <div class="flex mt-6">
+                <button type="input" class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Send</button>
+            </div>
+    </section>
+        {{ form_end(newsletterForm) }}
 </div>
+            </div>
 <script>
 $('#select-all').click(function(event) {   
     if(this.checked) {
