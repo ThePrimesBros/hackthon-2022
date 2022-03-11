@@ -91,6 +91,15 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
     },
+    "guzzlehttp/guzzle": {
+        "version": "7.4.1"
+    },
+    "guzzlehttp/promises": {
+        "version": "1.5.1"
+    },
+    "guzzlehttp/psr7": {
+        "version": "2.1.0"
+    },
     "h4cc/wkhtmltopdf-amd64": {
         "version": "0.12.4"
     },
@@ -213,12 +222,12 @@
     "psr/simple-cache": {
         "version": "1.0.1"
     },
-<<<<<<< HEAD
+    "ralouphie/getallheaders": {
+        "version": "3.0.3"
+    },
     "sabberworm/php-css-parser": {
         "version": "8.4.0"
     },
-=======
->>>>>>> 2177d959565b3768102a560d7577eda646d64d9b
     "sebastian/cli-parser": {
         "version": "1.0.1"
     },
@@ -278,6 +287,9 @@
         "files": [
             "config/packages/sensio_framework_extra.yaml"
         ]
+    },
+    "stichoza/google-translate-php": {
+        "version": "v4.1.6"
     },
     "symfony/asset": {
         "version": "v5.3.4"

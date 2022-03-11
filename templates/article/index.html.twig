@@ -20,7 +20,7 @@
         {% for article in articles %}
             <tr>
                 <td>{{ article.id }}</td>
-                <td>{{ article.title }}</td>
+                <td>{{ article.title | trans}}</td>
                 <td>{{ article.text }}</td>
                 <td>{{ article.seoTitle }}</td>
                 <td>{{ article.seoDescription }}</td>

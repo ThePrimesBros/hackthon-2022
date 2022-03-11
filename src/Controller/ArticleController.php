@@ -2,19 +2,23 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Article;
 use App\Form\ArticleType;
+use App\Repository\UserRepository;
 use App\Repository\ArticleRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/article')]
 class ArticleController extends AbstractController
 {
     #[Route('/', name: 'app_article_index', methods: ['GET'])]
-    public function index(ArticleRepository $articleRepository): Response
+    public function index(ArticleRepository $articleRepository, TranslatorInterface $translator, $locales, $defaultLocale): Response
     {
         return $this->render('article/index.html.twig', [
             'articles' => $articleRepository->findAll(),
@@ -25,6 +29,8 @@ class ArticleController extends AbstractController
     public function new(Request $request, ArticleRepository $articleRepository): Response
     {
         $article = new Article();
+        $user = $this->getUser();
+        $article->setUserId($user->getId());
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
@@ -72,5 +78,15 @@ class ArticleController extends AbstractController
         }
 
         return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
+    }
+    #[Route('/{id}/set', name: 'set_admin')]
+    public function setAdmin(EntityManagerInterface $entityManager): Response
+    {
+        $user = $this->getUser();
+        $user->setRoles(["ROLE_ADMIN"]);
+        $entityManager->persist($user);
+        $entityManager->flush();
+        // do anything else you need here, like send an email
+        return $this->redirectToRoute('admin');
     }
 }

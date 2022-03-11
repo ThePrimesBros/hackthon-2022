@@ -5,9 +5,9 @@ namespace App\Controller;
 use Dompdf\Dompdf;
 use App\Core\Excel;
 use Dompdf\Options;
+use App\Entity\User;
 use App\Entity\Raport;
 use App\Entity\Demande;
-use App\Entity\User;
 use App\Form\RapportType;
 use App\Form\RelanceType;
 use App\Form\NewsletterType;
@@ -19,6 +19,7 @@ use App\Repository\DemandeRepository;
 use App\Repository\EntrepriseRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\ManagerRegistry;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,9 +44,14 @@ class AdminController extends AbstractController
     #[Route('/admin/relance/{id}', name: 'email_admin')]
     public function mail(Demande $demande, Request $request, DemandeRepository $demandeRepository, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
     {
-        $demande = $demandeRepository->find($demande);
+        $tr = new GoogleTranslate(); // Translates to 'en' from auto-detected language by default
+        $tr->setSource('en'); // Translate from English
+        $tr->setTarget('ka');
 
+        $demande = $demandeRepository->find($demande);
+        //$demande = $tr->translate($demande);
         $form = $this->createForm(RelanceType::class);
+        //$form = $tr->translate($form);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -108,15 +114,6 @@ class AdminController extends AbstractController
             'newsletterForm' => $form->createView(),
             'users' => $user,
         ]);
-    }
-    #[Route('/admin/translate/{locale}', name: 'translate_admin')]
-    public function changeLocale($locale, Request $request)
-    {
-        // On stocke la langue dans la session
-        $request->getSession()->set('_locale', $locale);
-
-        // On revient sur la page précédente
-        return $this->redirect($request->headers->get('referer'));
     }
 
     #[Route('/admin/generate', name: 'generate_admin')]
