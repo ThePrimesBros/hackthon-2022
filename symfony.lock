@@ -213,12 +213,9 @@
     "psr/simple-cache": {
         "version": "1.0.1"
     },
-<<<<<<< HEAD
     "sabberworm/php-css-parser": {
         "version": "8.4.0"
     },
-=======
->>>>>>> 2177d959565b3768102a560d7577eda646d64d9b
     "sebastian/cli-parser": {
         "version": "1.0.1"
     },
@@ -278,6 +275,9 @@
         "files": [
             "config/packages/sensio_framework_extra.yaml"
         ]
+    },
+    "stripe/stripe-php": {
+        "version": "v7.116.0"
     },
     "symfony/asset": {
         "version": "v5.3.4"

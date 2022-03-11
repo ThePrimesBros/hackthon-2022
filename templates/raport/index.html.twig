@@ -3,37 +3,5 @@
 {% block title %}Raport index{% endblock %}
 
 {% block body %}
-    <h1>Raport index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Path</th>
-                <th>Price</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for raport in raports %}
-            <tr>
-                <td>{{ raport.id }}</td>
-                <td>{{ raport.path }}</td>
-                <td>{{ raport.price }}</td>
-                <td>
-                    <a href="{{ path('app_raport_show', {'id': raport.id}) }}">show</a>
-                    <a href="{{ path('app_raport_edit', {'id': raport.id}) }}">edit</a>
-                    <a href="{{ path('app_raport_importData', {'id': raport.id}) }}">import</a>
-
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_raport_new') }}">Create new</a>
 {% endblock %}

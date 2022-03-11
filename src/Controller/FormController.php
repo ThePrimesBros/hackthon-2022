@@ -32,6 +32,7 @@ class FormController extends AbstractController
             // encode the plain password
             $demande->setSendAt($now);
             $demande->setTraiter(false);
+            $demande->setType("contact");
             $entityManager->persist($demande);
             $entityManager->flush();
 
