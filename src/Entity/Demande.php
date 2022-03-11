@@ -48,6 +48,11 @@ class Demande
      */
     private $Traiter;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Protocol::class, inversedBy="demandes")
+     */
+    private $protocol;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -130,6 +135,18 @@ class Demande
     public function setTraiter(bool $Traiter): self
     {
         $this->Traiter = $Traiter;
+
+        return $this;
+    }
+
+    public function getProtocol(): ?Protocol
+    {
+        return $this->protocol;
+    }
+
+    public function setProtocol(?Protocol $protocol): self
+    {
+        $this->protocol = $protocol;
 
         return $this;
     }
