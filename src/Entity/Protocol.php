@@ -34,9 +34,15 @@ class Protocol
      */
     private $raports;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Demande::class, mappedBy="protocol")
+     */
+    private $demandes;
+
     public function __construct()
     {
         $this->raports = new ArrayCollection();
+        $this->demandes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -92,6 +98,36 @@ class Protocol
             // set the owning side to null (unless already changed)
             if ($raport->getProtocol() === $this) {
                 $raport->setProtocol(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Demande>
+     */
+    public function getDemandes(): Collection
+    {
+        return $this->demandes;
+    }
+
+    public function addDemande(Demande $demande): self
+    {
+        if (!$this->demandes->contains($demande)) {
+            $this->demandes[] = $demande;
+            $demande->setProtocol($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDemande(Demande $demande): self
+    {
+        if ($this->demandes->removeElement($demande)) {
+            // set the owning side to null (unless already changed)
+            if ($demande->getProtocol() === $this) {
+                $demande->setProtocol(null);
             }
         }
 
