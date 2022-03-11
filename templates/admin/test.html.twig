@@ -58,12 +58,25 @@
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>Contact</h1>
+   <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 w-2/3 my-12 py-5">
+        <h2 class="text-lg text-center font-semibold text-gray-700 capitalize dark:text-white">Reply</h2>
+        {{ form_start(testForm,{'attr': {'class': 'w-2/3'}}) }}
 
-    {{ form_start(testForm) }}
-        {{ form_row(testForm.Email, { 'attr': {'value': demande.contactEmail}}) }}
-        {{ form_row(testForm.Sujet) }}
-        {{ form_row(testForm.Contenu)}}
-        <button type="submit" class="btn">Envoyé</button>
-    {{ form_end(testForm) }}
+            <div class="mx-auto">
+                <div class="mx-auto">
+                    {{ form_row(testForm.Email, { 'attr': {'value': demande.contactEmail, 'class':'block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring'}}) }}                </div>
+                <div class="mx-auto">
+                    {{ form_row(testForm.Sujet, { 'attr': {'value': demande.contactEmail, 'class':'block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring'}}) }}                </div>
+                </div>
+
+                <div class="mx-auto">
+                    {{ form_row(testForm.Contenu, { 'attr': {'value': demande.contactEmail, 'class':'block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring'}}) }}                </div>
+                </div>
+            </div>
+
+            <div class="flex mt-6">
+                <button type="input" class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Send</button>
+            </div>
+        {{ form_end(testForm) }}
+    </section>
 {% endblock %}

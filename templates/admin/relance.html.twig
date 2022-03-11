@@ -57,13 +57,15 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
 <div class="w-4/5 mx-auto">
-<table id="myTable" class="display text-white">
+<table id="myTable" class="display text-white text-center">
     <thead>
         <tr>
             <th>Email</th>
-            <th>{% trans %}Content{% endtrans %}</th>
+            <th>Subject</th>
+            <th>Content</th>
             <th>Treat</th>
             <th>Send at</th>
+            <th>Type</th>
             <th>Response</th>
         </tr>
     </thead>
@@ -71,6 +73,7 @@
         {% for demandes in demande %}
             <tr>
                 <td>{{demandes.contactEmail}}</td>
+                <td>{{demandes.sujet}}</td>
                 <td>{{demandes.content | trans}}</td>
                 {% if demandes.Traiter == false %}
                     <td>Untreat</td>
@@ -78,6 +81,7 @@
                     <td>Treat</td>
                 {% endif %}
                 <td>{{demandes.sendAt | date("d/m/Y h:i:s")}}</td>
+                <td>{{demandes.type}}</td>
                 <td class="text-center my-12"><a class="my-5 px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80" href="/admin/relance/{{demandes.id}}">Response</a></td>
             </tr>
         {% endfor %}

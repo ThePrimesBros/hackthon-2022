@@ -3,10 +3,15 @@
 namespace App\Controller;
 
 use App\Core\Excel;
+use App\Core\Stripe;
 use App\Entity\Raport;
+use DateTimeImmutable;
+use App\Entity\Demande;
+use App\Form\DevisType;
 use App\Form\RaportType;
 use App\Form\RapportType;
 use App\Repository\RaportRepository;
+use App\Repository\DemandeRepository;
 use App\Repository\EntrepriseRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,46 +31,33 @@ class RaportController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_raport_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, RaportRepository $raportRepository): Response
-    {
-        $raport = new Raport();
-        $form = $this->createForm(RaportType::class, $raport);
-        $form->handleRequest($request);
+        #[Route('/devis', name: 'app_raport_devis', methods: ['GET', 'POST'])]
+        public function devis(Request $request, DemandeRepository $demandeRepository): Response
+        {
+            $devis = new Demande();
+            $form = $this->createForm(DevisType::class, $devis);
+            $form->handleRequest($request);
+            $now = new DateTimeImmutable();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $raportRepository->add($raport);
-            return $this->redirectToRoute('app_raport_index', [], Response::HTTP_SEE_OTHER);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $devis->setSendAt($now);
+                $devis->setTraiter(false);
+                $devis->setType("devis");
+                $demandeRepository->add($devis);
+                return $this->redirectToRoute('app_raport_index', [], Response::HTTP_SEE_OTHER);
+            }
+    
+            return $this->renderForm('raport/devis.html.twig', [
+                'raport' => $devis,
+                'devisForm' => $form,
+            ]);
         }
-
-        return $this->renderForm('raport/new.html.twig', [
-            'raport' => $raport,
-            'form' => $form,
-        ]);
-    }
 
     #[Route('/{id}', name: 'app_raport_show', methods: ['GET'])]
     public function show(Raport $raport): Response
     {
         return $this->render('raport/show.html.twig', [
             'raport' => $raport,
-        ]);
-    }
-
-    #[Route('/{id}/edit', name: 'app_raport_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Raport $raport, RaportRepository $raportRepository): Response
-    {
-        $form = $this->createForm(RaportType::class, $raport);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $raportRepository->add($raport);
-            return $this->redirectToRoute('app_raport_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('raport/edit.html.twig', [
-            'raport' => $raport,
-            'form' => $form,
         ]);
     }
 
@@ -79,26 +71,7 @@ class RaportController extends AbstractController
         return $this->redirectToRoute('app_raport_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    #[Route('/{id}/import', name: 'app_raport_importData', methods: ['GET'])]
-    public function importData(Request $request): Response
-    {
-        $antioxydant = 1;
-        $moisturizing = 1;
-        $barriere = 1;
-        $untreatedSkinAntioxydant = 1;
-        $untreatedSkinMoisturizing = 1;
-        $untreatedSkinBarriere = 1;
-
-
-        $excel = new Excel();
-        $data = $excel->import($antioxydant, $moisturizing, $barriere, $untreatedSkinAntioxydant, $untreatedSkinMoisturizing, $untreatedSkinBarriere);
-        //dd($data);
-
-        return $this->render('default/mypdf2.html.twig', [
-            'data2' => $data
-        ]);
-    }
-    #[Route('/{id}/generate', name: 'app_rapport_generate')]
+    #[Route('/pdf/generate', name: 'app_raport_generate', methods: ['GET','POST'])]
     public function generatePDF(Request $request, EntrepriseRepository $entrepriseRepository, EntityManagerInterface $entityManager)
     {
         $user = $this->getUser();
@@ -125,14 +98,13 @@ class RaportController extends AbstractController
             $entityManager->flush();
 
             $entreprise = $entrepriseRepository->findOneBy(["name" => $data['entreprise']]);
-
             return $this->render('default/mypdf.html.twig', [
                 'data' => $data,
                 'entreprise' => $entreprise,
                 'data2' => $data2
             ]);
         }
-        return $this->render('raport/generate.html.twig', [
+        return $this->render('admin/generate.html.twig', [
             'rapportForm' => $form->createView(),
         ]);
     }

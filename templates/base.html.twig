@@ -17,11 +17,11 @@
     <link rel="stylesheet" href="{{ asset("css/output.css") }}">
 </head>
 <body class="bg-WBdarkGrey">
-    {% if app.user %}
+    {#{% if app.user %}
         <div class="mb-3 text-white">
             You are logged in as {{ app.user.email }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
-    {% endif %}
+    {% endif %}#}
 {% block body %}{% endblock %}
 <div id="bot-container">
   <div id="bot-inner">

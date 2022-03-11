@@ -18,7 +18,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ArticleController extends AbstractController
 {
     #[Route('/', name: 'app_article_index', methods: ['GET'])]
-    public function index(ArticleRepository $articleRepository, TranslatorInterface $translator, $locales, $defaultLocale): Response
+    public function index(ArticleRepository $articleRepository): Response
     {
         return $this->render('article/index.html.twig', [
             'articles' => $articleRepository->findAll(),
@@ -30,7 +30,7 @@ class ArticleController extends AbstractController
     {
         $article = new Article();
         $user = $this->getUser();
-        $article->setUserId($user->getId());
+        $article->setUserId($user);
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 

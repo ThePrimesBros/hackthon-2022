@@ -13,14 +13,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class FormController extends AbstractController
 {
-    #[Route('/form', name: 'app_form')]
-    public function index(): Response
-    {
-        return $this->render('form/index.html.twig', [
-            'controller_name' => 'FormController',
-        ]);
-    }
-
     #[Route('/contact', name: 'app_contact')]
     public function contact(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -32,6 +24,7 @@ class FormController extends AbstractController
             // encode the plain password
             $demande->setSendAt($now);
             $demande->setTraiter(false);
+            $demande->setType("contact");
             $entityManager->persist($demande);
             $entityManager->flush();
 

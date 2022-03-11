@@ -95,8 +95,7 @@
         "symfony/polyfill-php80": "*"
     },
     "scripts": {
-        "auto-scripts": [
-        ],
+        "auto-scripts": [],
         "post-install-cmd": [
             "@auto-scripts"
         ],

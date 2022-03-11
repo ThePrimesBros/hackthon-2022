@@ -19,11 +19,12 @@ class Raport
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     *
      */
     private $path;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="float")
      */
     private $price;
 

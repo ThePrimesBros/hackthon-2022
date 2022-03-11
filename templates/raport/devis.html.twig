@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Devis{% endblock %}
+
+{% block body %}
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <h1>Faire un devis</h1>
+
+    {{ form_start(devisForm) }}
+    {{ form_row(devisForm.contact_email) }}
+    {{ form_row(devisForm.sujet) }}
+    {{ form_row(devisForm.content) }}
+
+    <button type="submit" class="btn">Envoyé</button>
+    {{ form_end(devisForm) }}
+{% endblock %}
