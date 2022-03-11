@@ -18,7 +18,7 @@ class Raport
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $path;
 
@@ -35,7 +35,7 @@ class Raport
 
     /**
      * @ORM\ManyToOne(targetEntity=Protocol::class, inversedBy="raports")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $protocol;
 

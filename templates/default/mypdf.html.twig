@@ -1,0 +1,1301 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<style>
+    #pdf {
+        height: auto;
+        width: 595px;
+        /* to centre page on screen*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+</style>
+<div id="pdf">
+<img src="{{entreprise.logo}}" class="w-full mb-12">
+<div class="">
+    <h1 class="text-center text-2xl mb-1">{{data.title}}</h1>
+    <h2 class="text-center text-xl">{{entreprise.name}}</h2>
+    <h3 class="text-center text-lg mb-5">{{entreprise.address}} - {{entreprise.city}}</h3>
+
+    <div class="">
+        <p class="text-center">Commentaires sur le rapport : {{data.commentary}}</p>
+    </div>
+</div>
+
+{% if data.graph1 == true %}
+<div class="my-80">
+<canvas id="myChart1"></canvas>
+</div>
+{% endif %}
+{% if data.graph2 == true %}
+<div class="my-80">
+<canvas id="myChart2"></canvas>
+</div>
+{% endif %}
+{% if data.graph3 == true %}
+<div class="my-80">
+<canvas id="myChart3"></canvas>
+</div>
+{% endif %}
+{% if data.graph4 == true %}
+<div class="my-80">
+<canvas id="myChart4"></canvas>
+</div>
+{% endif %}
+{% if data.graph5 == true %}
+<div class="my-80">
+<canvas id="myChart5"></canvas>
+</div>
+{% endif %}
+{% if data.graph6 == true %}
+<div class="my-80">
+<canvas id="myChart6"></canvas>
+</div>
+{% endif %}
+{% if data.graph7 == true %}
+<div class="my-80">
+<canvas id="myChart7"></canvas>
+</div>
+
+{% endif %}
+{% if data.graph8 == true %}
+<div class="my-80">
+<canvas id="myChart8"></canvas>
+</div>
+
+{% endif %}
+{% if data.graph9 == true %}
+<div class="my-80">
+<canvas id="myChart9"></canvas>
+</div>
+
+{% endif %}
+{% if data.graph10 == true %}
+<div class="my-80">
+<canvas id="myChart10"></canvas>
+</div>
+
+{% endif %}
+{% if data.graph11 == true %}
+<div class="my-80">
+<canvas id="myChart11"></canvas>
+</div>
+
+{% endif %}
+{% if data.graph12 == true %}
+<div class="my-80">
+<canvas id="myChart12"></canvas>
+</div>
+{% endif %}
+{% if data.graph13 == true %}
+<div class="my-80">
+<canvas id="myChart13"></canvas>
+</div>
+{% endif %}
+{% if data.graph14 == true %}
+<div class="my-80">
+<canvas id="myChart14"></canvas>
+</div>
+{% endif %}
+{% if data.graph15 == true %}
+<div class="my-80">
+<canvas id="myChart15"></canvas>
+</div>
+{% endif %}
+{% if data.graph16 == true %}
+<div class="my-80">
+<canvas id="myChart16"></canvas>
+</div>
+{% endif %}
+{% if data.graph17 == true %}
+<div class="my-80">
+<canvas id="myChart17"></canvas>
+</div>
+{% endif %}
+{% if data.graph18 == true %}
+<div class="my-80">
+<canvas id="myChart18"></canvas>
+</div>
+{% endif %}
+{% if data.graph19 == true %}
+<div class="my-80">
+<canvas id="myChart19"></canvas>
+</div>
+{% endif %}
+{% if data.graph20 == true %}
+<div class="my-80">
+<canvas id="myChart20"></canvas>
+</div>
+{% endif %}
+{% if data.graph21 == true %}
+<div class="my-80">
+<canvas id="myChart21"></canvas>
+</div>
+{% endif %}
+{% if data.graph22 == true %}
+<div class="my-80">
+<canvas id="myChart22"></canvas>
+</div>
+{% endif %}
+{% if data.graph23 == true %}
+<div class="my-80">
+<canvas id="myChart23"></canvas>
+</div>
+{% endif %}
+{% if data.graph24 == true %}
+<div class="my-80">
+<canvas id="myChart24"></canvas>
+</div>
+{% endif %}
+{% if data.graph25 == true %}
+<div class="my-80">
+<canvas id="myChart25"></canvas>
+</div>
+
+{% endif %}
+{% if data.graph26 == true %}
+<div class="my-80">
+<canvas id="myChart26"></canvas>
+</div>
+
+{% endif %}
+{% if data.graph27 == true %}
+<div class="my-80">
+<canvas id="myChart27"></canvas>
+</div>
+
+{% endif %}
+{% if data.graph28 == true %}
+<div class="my-80">
+<canvas id="myChart28"></canvas>
+</div>
+
+{% endif %}
+{% if data.graph29 == true %}
+<div class="my-80">
+<canvas id="myChart29"></canvas>
+</div>
+
+{% endif %}
+{% if data.graph30 == true %}
+<div class="my-80">
+<canvas id="myChart30"></canvas>
+</div>
+{% endif %}
+{% if data.graph31 == true %}
+<div class="my-80">
+<canvas id="myChart31"></canvas>
+</div>
+{% endif %}
+{% if data.graph32 == true %}
+<div class="my-80">
+<canvas id="myChart32"></canvas>
+</div>
+{% endif %}
+{% if data.graph33 == true %}
+<div class="my-80">
+<canvas id="myChart33"></canvas>
+</div>
+{% endif %}
+{% if data.graph34 == true %}
+<div class="my-80">
+<canvas id="myChart34"></canvas>
+</div>
+{% endif %}
+{% if data.graph35 == true %}
+<div class="my-80">
+<canvas id="myChart35"></canvas>
+</div>
+{% endif %}
+{% if data.graph36 == true %}
+<div class="my-80">
+<canvas id="myChart36"></canvas>
+</div>
+{% endif %}
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+function dlPdf(){
+var element = document.getElementById('pdf');
+var opt = {
+  margin:       1,
+  filename:     '{{data.title}}.pdf',
+  image:        { type: 'jpeg', quality: 0.98 },
+  html2canvas: {
+dpi: 300,
+letterRendering: true,
+useCORS: true
+},
+  jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
+};
+
+// New Promise-based usage:
+//html2pdf().set(opt).from(element).save();
+
+// Old monolithic-style usage:
+html2pdf(element, opt);
+}
+const test = setTimeout(dlPdf, 1000);
+</script>
+<script>
+{% if data.graph1 == true %}
+var lineChartData1 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(255,255,0,1)",
+        borderColor: "rgba(0,255,0,1)",
+        data: [{{data2.moisturizing[0].product0SumT0}}, {{data2.moisturizing[0].product0SumT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph2 == true %}
+var lineChartData2 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(0,255,0,1)",
+        borderColor: "rgba(255,255,0,1)",
+        data: [{{data2.moisturizing[0].moyenneT0}}, {{data2.moisturizing[0].moyenneT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph3 == true %}
+var lineChartData3 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(0,255,255,1)",
+        borderColor: "rgba(0,0,255,1)",
+        data: [{{data2.moisturizing[1].product1SumT0}}, {{data2.moisturizing[1].product1SumT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph4 == true %}
+var lineChartData4 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(0,0,255,1)",
+        borderColor: "rgba(0,255,255,1)",
+        data: [{{data2.moisturizing[1].moyenneT0}}, {{data2.moisturizing[1].moyenneT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph5 == true %}
+var lineChartData5 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+            label: "Product 1",
+            backgroundColor: "rgba(255,255,0,1)",
+            borderColor: "rgba(0,255,0,1)",
+            data: [{{data2.moisturizing[0].product0SumT0}}, {{data2.moisturizing[0].product0SumT1}}],
+            bezierCurve: false
+        }, {
+            label: "Product 2",
+            backgroundColor: "rgba(0,255,0,1)",
+            borderColor: "rgba(255,255,0,1)",
+            data: [{{data2.moisturizing[1].product1SumT0}}, {{data2.moisturizing[1].product1SumT1}}],
+            bezierCurve: false
+    }]
+}
+{% endif %}
+{% if data.graph6 == true %}
+var lineChartData6 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        label: "Product 1",
+            backgroundColor: "rgba(0,255,255,1)",
+            borderColor: "rgba(0,0,255,1)",
+            data: [{{data2.moisturizing[0].moyenneT0}}, {{data2.moisturizing[0].moyenneT1}}],
+            bezierCurve: false
+        }, {
+            label: "Product 2",
+            backgroundColor: "rgba(0,0,255,1)",
+            borderColor: "rgba(0,255,255,1)",
+            data: [{{data2.moisturizing[1].moyenneT0}}, {{data2.moisturizing[1].moyenneT1}}],
+            bezierCurve: false
+        }]
+
+}
+{% endif %}
+{% if data.graph7 == true %}
+var lineChartData7 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(255,0,0,1)",
+        borderColor: "rgba(255,0,255,1)",
+        data: [{{data2.antioxydant[0].product0SumT0}}, {{data2.antioxydant[0].product0SumT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph8 == true %}
+var lineChartData8 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(255,0,255,1)",
+        borderColor: "rgba(255,0,0,1)",
+        data: [{{data2.antioxydant[1].product1SumT0}}, {{data2.antioxydant[1].product1SumT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph9 == true %}
+var lineChartData9 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(255,255,0,1)",
+        borderColor: "rgba(255,0,255,1)",
+        data: [{{data2.antioxydant[0].moyenneT0}}, {{data2.antioxydant[0].moyenneT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph10 == true %}
+var lineChartData10 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(255,0,255,1)",
+        borderColor: "rgba(255,255,0,1)",
+        data: [{{data2.antioxydant[1].moyenneT0}}, {{data2.antioxydant[1].moyenneT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph11 == true %}
+var lineChartData11 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+            label: "Product 1 Antioxydant",
+            backgroundColor: "rgba(255,0,0,1)",
+            borderColor: "rgba(255,0,255,1)",
+            data: [{{data2.antioxydant[0].product0SumT0}}, {{data2.antioxydant[0].product0SumT0}}],
+            bezierCurve: false
+        }, {
+            label: "Product 2 Antioxydant",
+            backgroundColor: "rgba(255,0,255,1)",
+            borderColor: "rgba(255,0,0,1)",
+            data: [{{data2.antioxydant[1].product1SumT0}}, {{data2.antioxydant[1].product1SumT0}}],
+            bezierCurve: false
+        }]
+
+}
+{% endif %}
+{% if data.graph12 == true %}
+var lineChartData12 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        label: "Product 1 Antioxydant",
+        backgroundColor: "rgba(255,255,0,1)",
+        borderColor: "rgba(255,0,255,1)",
+            data: [{{data2.antioxydant[0].moyenneT0}}, {{data2.antioxydant[0].moyenneT1}}],
+            bezierCurve: false
+        }, {
+            label: "Product 2 Antioxydant",
+        backgroundColor: "rgba(255,0,255,1)",
+        borderColor: "rgba(255,255,0,1)",
+            data: [{{data2.antioxydant[1].moyenneT0}}, {{data2.antioxydant[1].moyenneT1}}],
+            bezierCurve: false
+        }]
+
+}
+{% endif %}
+{% if data.graph13 == true %}
+var lineChartData13 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(255,255,0,1)",
+        borderColor: "rgba(255,0,255,1)",
+        data: [{{data2.barriere[0].product0SumT0}}, {{data2.barriere[0].product0SumT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph14 == true %}
+var lineChartData14 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(255,255,0,1)",
+        borderColor: "rgba(255,0,255,1)",
+        data: [{{data2.barriere[0].moyenneT0}}, {{data2.barriere[0].moyenneT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph15 == true %}
+var lineChartData15 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(255,255,0,1)",
+        borderColor: "rgba(255,0,255,1)",
+        data: [{{data2.barriere[1].product1SumT0}}, {{data2.barriere[1].product1SumT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph16 == true %}
+var lineChartData16 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(255,255,0,1)",
+        borderColor: "rgba(255,0,255,1)",
+        data: [{{data2.barriere[1].moyenneT0}}, {{data2.barriere[1].moyenneT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph17 == true %}
+var lineChartData17 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        label: "Product 1 Shield",
+        backgroundColor: "rgba(255,255,0,1)",
+        borderColor: "rgba(255,0,255,1)",
+            data: [{{data2.barriere[0].product0SumT0}}, {{data2.barriere[0].product0SumT1}}],
+            bezierCurve: false
+        }, {
+            label: "Product 2 Shield",
+        backgroundColor: "rgba(255,0,255,1)",
+        borderColor: "rgba(255,255,0,1)",
+            data: [{{data2.barriere[1].product1SumT0}}, {{data2.barriere[1].product1SumT1}}],
+            bezierCurve: false
+        }]
+
+}
+{% endif %}
+{% if data.graph18 == true %}
+var lineChartData18 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        label: "Product 1 Shield",
+        backgroundColor: "rgba(255,255,0,1)",
+        borderColor: "rgba(255,0,255,1)",
+            data: [{{data2.barriere[0].moyenneT0}}, {{data2.barriere[0].moyenneT1}}],
+            bezierCurve: false
+        }, {
+            label: "Product 2 Shield",
+        backgroundColor: "rgba(255,0,255,1)",
+        borderColor: "rgba(255,255,0,1)",
+            data: [{{data2.barriere[1].moyenneT0}}, {{data2.barriere[1].moyenneT1}}],
+            bezierCurve: false
+        }]
+
+}
+{% endif %}
+{% if data.graph19 == true %}
+var lineChartData19 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(255,255,0,1)",
+        borderColor: "rgba(0,255,0,1)",
+        data: [{{data2.untreatedSkinMoisturizing[0].product0SumT0}}, {{data2.untreatedSkinMoisturizing[0].product0SumT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph20 == true %}
+var lineChartData20 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(0,255,0,1)",
+        borderColor: "rgba(255,255,0,1)",
+        data: [{{data2.untreatedSkinMoisturizing[0].moyenneT0}}, {{data2.untreatedSkinMoisturizing[0].moyenneT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph21 == true %}
+var lineChartData21 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(0,255,255,1)",
+        borderColor: "rgba(0,0,255,1)",
+        data: [{{data2.untreatedSkinMoisturizing[1].product1SumT0}}, {{data2.untreatedSkinMoisturizing[1].product1SumT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph22 == true %}
+var lineChartData22 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(0,0,255,1)",
+        borderColor: "rgba(0,255,255,1)",
+        data: [{{data2.untreatedSkinMoisturizing[1].moyenneT0}}, {{data2.untreatedSkinMoisturizing[1].moyenneT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph23 == true %}
+var lineChartData23 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+            label: "Product 1 Untreat",
+            backgroundColor: "rgba(255,255,0,1)",
+            borderColor: "rgba(0,255,0,1)",
+            data: [{{data2.untreatedSkinMoisturizing[0].product0SumT0}}, {{data2.untreatedSkinMoisturizing[0].product0SumT1}}],
+            bezierCurve: false
+        }, {
+            label: "Product 2 Untreat",
+            backgroundColor: "rgba(0,255,0,1)",
+            borderColor: "rgba(255,255,0,1)",
+            data: [{{data2.untreatedSkinMoisturizing[1].product1SumT0}}, {{data2.untreatedSkinMoisturizing[1].product1SumT1}}],
+            bezierCurve: false
+    }]
+}
+{% endif %}
+{% if data.graph24 == true %}
+var lineChartData24 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        label: "Product 1 Untreat",
+            backgroundColor: "rgba(0,255,255,1)",
+            borderColor: "rgba(0,0,255,1)",
+            data: [{{data2.untreatedSkinMoisturizing[0].moyenneT0}}, {{data2.untreatedSkinMoisturizing[0].moyenneT1}}],
+            bezierCurve: false
+        }, {
+            label: "Product 2 Untreat",
+            backgroundColor: "rgba(0,0,255,1)",
+            borderColor: "rgba(0,255,255,1)",
+            data: [{{data2.untreatedSkinMoisturizing[1].moyenneT0}}, {{data2.untreatedSkinMoisturizing[1].moyenneT1}}],
+            bezierCurve: false
+        }]
+
+}
+{% endif %}
+{% if data.graph25 == true %}
+var lineChartData25 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(255,0,0,1)",
+        borderColor: "rgba(255,0,255,1)",
+        data: [{{data2.untreatedSkinAntioxydant[0].product0SumT0}}, {{data2.untreatedSkinAntioxydant[0].product0SumT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph26 == true %}
+var lineChartData26 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(255,0,255,1)",
+        borderColor: "rgba(255,0,0,1)",
+        data: [{{data2.untreatedSkinAntioxydant[1].product1SumT0}}, {{data2.untreatedSkinAntioxydant[1].product1SumT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph27 == true %}
+var lineChartData27 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(255,255,0,1)",
+        borderColor: "rgba(255,0,255,1)",
+        data: [{{data2.untreatedSkinAntioxydant[0].moyenneT0}}, {{data2.untreatedSkinAntioxydant[0].moyenneT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph28 == true %}
+var lineChartData28 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(255,0,255,1)",
+        borderColor: "rgba(255,255,0,1)",
+        data: [{{data2.untreatedSkinAntioxydant[1].moyenneT0}}, {{data2.untreatedSkinAntioxydant[1].moyenneT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph29 == true %}
+var lineChartData29 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+            label: "Product 1 Antioxydant Untreat",
+            backgroundColor: "rgba(255,0,0,1)",
+            borderColor: "rgba(255,0,255,1)",
+            data: [{{data2.untreatedSkinAntioxydant[0].product0SumT0}}, {{data2.untreatedSkinAntioxydant[0].product0SumT0}}],
+            bezierCurve: false
+        }, {
+            label: "Product 2 Antioxydant Untreat",
+            backgroundColor: "rgba(255,0,255,1)",
+            borderColor: "rgba(255,0,0,1)",
+            data: [{{data2.untreatedSkinAntioxydant[1].product1SumT0}}, {{data2.untreatedSkinAntioxydant[1].product1SumT0}}],
+            bezierCurve: false
+        }]
+
+}
+{% endif %}
+{% if data.graph30 == true %}
+var lineChartData30 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        label: "Product 1 Antioxydant Untreat",
+        backgroundColor: "rgba(255,255,0,1)",
+        borderColor: "rgba(255,0,255,1)",
+            data: [{{data2.untreatedSkinAntioxydant[0].moyenneT0}}, {{data2.untreatedSkinAntioxydant[0].moyenneT1}}],
+            bezierCurve: false
+        }, {
+            label: "Product 2 Antioxydant Untreat",
+        backgroundColor: "rgba(255,0,255,1)",
+        borderColor: "rgba(255,255,0,1)",
+            data: [{{data2.untreatedSkinAntioxydant[1].moyenneT0}}, {{data2.untreatedSkinAntioxydant[1].moyenneT1}}],
+            bezierCurve: false
+        }]
+
+}
+{% endif %}
+{% if data.graph31 == true %}
+var lineChartData31 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(255,255,0,1)",
+        borderColor: "rgba(255,0,255,1)",
+        data: [{{data2.untreatedSkinBarriere[0].product0SumT0}}, {{data2.untreatedSkinBarriere[0].product0SumT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph32 == true %}
+var lineChartData32 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(255,255,0,1)",
+        borderColor: "rgba(255,0,255,1)",
+        data: [{{data2.untreatedSkinBarriere[0].moyenneT0}}, {{data2.untreatedSkinBarriere[0].moyenneT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph33 == true %}
+var lineChartData33 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(255,255,0,1)",
+        borderColor: "rgba(255,0,255,1)",
+        data: [{{data2.untreatedSkinBarriere[1].product1SumT0}}, {{data2.untreatedSkinBarriere[1].product1SumT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph34 == true %}
+var lineChartData34 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        backgroundColor: "rgba(255,255,0,1)",
+        borderColor: "rgba(255,0,255,1)",
+        data: [{{data2.untreatedSkinBarriere[1].moyenneT0}}, {{data2.untreatedSkinBarriere[1].moyenneT1}}],
+        bezierCurve: false
+    }]
+
+}
+{% endif %}
+{% if data.graph35 == true %}
+var lineChartData35 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        label: "Product 1 Shield Untreat",
+        backgroundColor: "rgba(255,255,0,1)",
+        borderColor: "rgba(255,0,255,1)",
+            data: [{{data2.untreatedSkinBarriere[0].product0SumT0}}, {{data2.untreatedSkinBarriere[0].product0SumT1}}],
+            bezierCurve: false
+        }, {
+            label: "Product 2 Shield Untreat",
+        backgroundColor: "rgba(255,0,255,1)",
+        borderColor: "rgba(255,255,0,1)",
+            data: [{{data2.untreatedSkinBarriere[1].product1SumT0}}, {{data2.untreatedSkinBarriere[1].product1SumT1}}],
+            bezierCurve: false
+        }]
+
+}
+{% endif %}
+{% if data.graph36 == true %}
+var lineChartData36 = {
+    labels: ["T0", "T1"],
+    datasets: [{
+        label: "Product 1 Shield Untreat",
+        backgroundColor: "rgba(255,255,0,1)",
+        borderColor: "rgba(255,0,255,1)",
+            data: [{{data2.untreatedSkinBarriere[0].moyenneT0}}, {{data2.untreatedSkinBarriere[0].moyenneT1}}],
+            bezierCurve: false
+        }, {
+            label: "Product 2 Shield Untreat",
+        backgroundColor: "rgba(255,0,255,1)",
+        borderColor: "rgba(255,255,0,1)",
+            data: [{{data2.untreatedSkinBarriere[1].moyenneT0}}, {{data2.untreatedSkinBarriere[1].moyenneT1}}],
+            bezierCurve: false
+        }]
+
+}
+{% endif %}
+var options = {
+    bezierCurve: false,
+};
+
+{% if data.graph1 == true %}
+var myLine1 = new Chart(document.getElementById("myChart1").getContext("2d"), {
+    data: lineChartData1,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 - Evolution T0 - T1'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph2 == true %}
+var myLine2 = new Chart(document.getElementById("myChart2").getContext("2d"), {
+    data: lineChartData2,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 - Average T0 - T1'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph3  == true %}
+var myLine3 = new Chart(document.getElementById("myChart3").getContext("2d"), {
+    data: lineChartData3,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 2 - Evolution T0 - T1'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph4  == true %}
+var myLine3 = new Chart(document.getElementById("myChart4").getContext("2d"), {
+    data: lineChartData4,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 2 - average T0 - T1'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph5  == true %}
+var myLine3 = new Chart(document.getElementById("myChart5").getContext("2d"), {
+    data: lineChartData5,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 and Product 2 comparaison'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph6  == true %}
+var myLine3 = new Chart(document.getElementById("myChart6").getContext("2d"), {
+    data: lineChartData6,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 and Product 2 average comparaison'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph7  == true %}
+var myLine3 = new Chart(document.getElementById("myChart7").getContext("2d"), {
+    data: lineChartData7,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 - Evolution T0 - T1 - Antioxydant'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph8  == true %}
+var myLine3 = new Chart(document.getElementById("myChart8").getContext("2d"), {
+    data: lineChartData8,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 - Average T0 - T1 - Antioxydant'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph9  == true %}
+var myLine3 = new Chart(document.getElementById("myChart9").getContext("2d"), {
+    data: lineChartData9,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 2 - Evolution T0 - T1 - Antioxydant'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph10  == true %}
+var myLine3 = new Chart(document.getElementById("myChart10").getContext("2d"), {
+    data: lineChartData10,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 2 - Average T0 - T1 - Antioxydant'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph11  == true %}
+var myLine3 = new Chart(document.getElementById("myChart11").getContext("2d"), {
+    data: lineChartData11,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 and Product 2 average comparaison antioxydant'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph12  == true %}
+var myLine3 = new Chart(document.getElementById("myChart12").getContext("2d"), {
+    data: lineChartData12,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 and Product 2 evolution comparaison antioxydant'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph13  == true %}
+var myLine3 = new Chart(document.getElementById("myChart13").getContext("2d"), {
+    data: lineChartData13,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 Treat - Evolution T0 - T1 - Shield'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph14  == true %}
+var myLine3 = new Chart(document.getElementById("myChart14").getContext("2d"), {
+    data: lineChartData14,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 Treat - Average T0 - T1 - Shield'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph15  == true %}
+var myLine3 = new Chart(document.getElementById("myChart15").getContext("2d"), {
+    data: lineChartData15,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 2 Treat - Evolution T0 - T1 - Shield'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph16  == true %}
+var myLine3 = new Chart(document.getElementById("myChart16").getContext("2d"), {
+    data: lineChartData16,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 2 Treat - Average T0 - T1 - Shield'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph17  == true %}
+var myLine3 = new Chart(document.getElementById("myChart17").getContext("2d"), {
+    data: lineChartData17,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 and Product 2 average comparaison shield treat'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph18  == true %}
+var myLine3 = new Chart(document.getElementById("myChart18").getContext("2d"), {
+    data: lineChartData18,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 and Product 2 evolution comparaison shield Treat'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph19 == true %}
+var myLine1 = new Chart(document.getElementById("myChart19").getContext("2d"), {
+    data: lineChartData19,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 Untreat - Evolution T0 - T1'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph20 == true %}
+var myLine2 = new Chart(document.getElementById("myChart20").getContext("2d"), {
+    data: lineChartData20,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 Untreat - Average T0 - T1'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph21  == true %}
+var myLine3 = new Chart(document.getElementById("myChart21").getContext("2d"), {
+    data: lineChartData21,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 2 Untreat - Evolution T0 - T1'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph22  == true %}
+var myLine3 = new Chart(document.getElementById("myChart22").getContext("2d"), {
+    data: lineChartData22,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 2 Untreat - average T0 - T1'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph23  == true %}
+var myLine3 = new Chart(document.getElementById("myChart23").getContext("2d"), {
+    data: lineChartData23,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 and Product 2 comparaison Untreat'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph24  == true %}
+var myLine3 = new Chart(document.getElementById("myChart24").getContext("2d"), {
+    data: lineChartData24,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 and Product 2 average comparaison Untreat'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph25  == true %}
+var myLine3 = new Chart(document.getElementById("myChart25").getContext("2d"), {
+    data: lineChartData25,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 Untreat - Evolution T0 - T1 - Antioxydant'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph26  == true %}
+var myLine3 = new Chart(document.getElementById("myChart26").getContext("2d"), {
+    data: lineChartData26,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 Untreat - Average T0 - T1 - Antioxydant'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph27  == true %}
+var myLine3 = new Chart(document.getElementById("myChart27").getContext("2d"), {
+    data: lineChartData27,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 2 Untreat - Evolution T0 - T1 - Antioxydant'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph28  == true %}
+var myLine3 = new Chart(document.getElementById("myChart28").getContext("2d"), {
+    data: lineChartData28,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 2 Untreat - Average T0 - T1 - Antioxydant'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph29  == true %}
+var myLine3 = new Chart(document.getElementById("myChart29").getContext("2d"), {
+    data: lineChartData29,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 and Product 2 average comparaison antioxydant Untreat'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph30  == true %}
+var myLine3 = new Chart(document.getElementById("myChart30").getContext("2d"), {
+    data: lineChartData30,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 and Product 2 evolution comparaison antioxydant Untreat'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph31  == true %}
+var myLine3 = new Chart(document.getElementById("myChart31").getContext("2d"), {
+    data: lineChartData31,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 UnTreat - Evolution T0 - T1 - Shield'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph32  == true %}
+var myLine3 = new Chart(document.getElementById("myChart32").getContext("2d"), {
+    data: lineChartData32,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 UnTreat - Average T0 - T1 - Shield'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph33  == true %}
+var myLine3 = new Chart(document.getElementById("myChart33").getContext("2d"), {
+    data: lineChartData33,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 2 Treat - Evolution T0 - T1 - Shield'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph34 == true %}
+var myLine3 = new Chart(document.getElementById("myChart34").getContext("2d"), {
+    data: lineChartData16,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 2 UnTreat - Average T0 - T1 - Shield'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph35  == true %}
+var myLine3 = new Chart(document.getElementById("myChart35").getContext("2d"), {
+    data: lineChartData35,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 and Product 2 average comparaison shield untreat'
+            }
+        }
+    }
+});
+{% endif %}
+{% if data.graph36  == true %}
+var myLine3 = new Chart(document.getElementById("myChart36").getContext("2d"), {
+    data: lineChartData36,
+    type: "line",
+    options: {
+        options: options,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Product 1 and Product 2 evolution comparaison shield unTreat'
+            }
+        }
+    }
+});
+{% endif %}
+</script>
+{% endblock %}

@@ -51,8 +51,8 @@
             "ref": "ee609429c9ee23e22d6fa5728211768f51ed2818"
         },
         "files": [
-            "config/packages/doctrine_migrations.yaml",
-            "migrations/.gitignore"
+            "./config/packages/doctrine_migrations.yaml",
+            "./migrations/.gitignore"
         ]
     },
     "doctrine/event-manager": {
@@ -68,7 +68,7 @@
         "version": "1.2.1"
     },
     "doctrine/migrations": {
-        "version": "3.3.0"
+        "version": "3.4.1"
     },
     "doctrine/orm": {
         "version": "2.10.1"
@@ -79,6 +79,9 @@
     "doctrine/sql-formatter": {
         "version": "1.1.1"
     },
+    "dompdf/dompdf": {
+        "version": "v1.2.0"
+    },
     "egulias/email-validator": {
         "version": "3.1.2"
     },
@@ -87,6 +90,18 @@
     },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
+    },
+    "h4cc/wkhtmltopdf-amd64": {
+        "version": "0.12.4"
+    },
+    "knplabs/knp-snappy": {
+        "version": "v1.4.1"
+    },
+    "knplabs/knp-snappy-bundle": {
+        "version": "1.9",
+        "recipe": {
+            "version": "1.5"
+        }
     },
     "laminas/laminas-code": {
         "version": "4.4.3"
@@ -117,6 +132,12 @@
     },
     "phar-io/version": {
         "version": "3.1.0"
+    },
+    "phenx/php-font-lib": {
+        "version": "0.5.4"
+    },
+    "phenx/php-svg-lib": {
+        "version": "0.4.1"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
@@ -192,6 +213,12 @@
     "psr/simple-cache": {
         "version": "1.0.1"
     },
+<<<<<<< HEAD
+    "sabberworm/php-css-parser": {
+        "version": "8.4.0"
+    },
+=======
+>>>>>>> 2177d959565b3768102a560d7577eda646d64d9b
     "sebastian/cli-parser": {
         "version": "1.0.1"
     },
@@ -568,6 +595,9 @@
             "templates/base.html.twig"
         ]
     },
+    "symfony/ux-chartjs": {
+        "version": "v2.0.1"
+    },
     "symfony/validator": {
         "version": "5.3",
         "recipe": {
@@ -602,6 +632,25 @@
             "config/routes/dev/web_profiler.yaml",
             "config/packages/test/web_profiler.yaml",
             "config/packages/dev/web_profiler.yaml"
+        ]
+    },
+    "symfony/webpack-encore-bundle": {
+        "version": "1.14",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.10",
+            "ref": "2858aeed7e1d81a45365c049eb533cc8827e380b"
+        },
+        "files": [
+            "assets/app.js",
+            "assets/bootstrap.js",
+            "assets/controllers.json",
+            "assets/controllers/hello_controller.js",
+            "assets/styles/app.css",
+            "config/packages/webpack_encore.yaml",
+            "package.json",
+            "webpack.config.js"
         ]
     },
     "symfony/yaml": {
